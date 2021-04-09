@@ -11,3 +11,4 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
 Here is the list of main topics covered by the course.
 - JSX Basics
 - JSX Conditional Rendering
+- ES6: let, const

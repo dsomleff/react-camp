@@ -1,13 +1,13 @@
 console.log('App is running');
 
 //JSX - JavaScript XML
-let app = {
+const app = {
 	title: 'Indecision App',
 	subtitle: 'Some info',
 	options: ['One', 'Two']
 };
 
-let template = (
+const template = (
 	<div>
 	<h1>{ app.title }</h1>
 		{ app.subtitle && <p>{ app.subtitle }</p> }
@@ -19,7 +19,7 @@ let template = (
 	</div>
 );
 
-let user = {
+const user = {
 	name: 'JuJu',
 	age: 18,
 	location: 'Ku'
@@ -31,13 +31,14 @@ const getLocation = location => {
 	}
 };
 
-let templateTwo = (
+const templateTwo = (
 	<div>
 		<h1>{ user.name ? user.name : 'Anonymous' }</h1>
 		{ (user.age && user.age >= 18 )&& <p>Forever { user.age }</p> }
 		{ getLocation(user.location) }
 	</div>
 );
-let appRoot = document.getElementById('app');
+
+const appRoot = document.getElementById('app');
 
 ReactDOM.render(template, appRoot);
