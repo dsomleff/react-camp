@@ -1,20 +1,34 @@
 "use strict";
 
-var nameVar = 'JuJu';
-var nameVar = 'Bo';
-console.log('nameVar', name);
-var nameLet = 'Du';
-nameLet = 'Ma';
-console.log('nameLet', nameLet);
-var nameConst = 'Cat';
-console.log('nameConst', nameConst); // Block scoping
+console.log('App is running'); //JSX - JavaScript XML
 
-var fullName = 'Buka Juk';
-var firstName;
+var app = {
+  title: 'Indecision App',
+  subtitle: 'Some info',
+  options: ['One', 'Two']
+};
+var template = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, app.title), app.subtitle && /*#__PURE__*/React.createElement("p", null, app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are your options' : 'No options'), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item one"), /*#__PURE__*/React.createElement("li", null, "Item two"))); // Events
 
-if (fullName) {
-  firstName = fullName.split(' ')[0];
-  console.log(firstName);
-}
+var count = 0;
 
-console.log(firstName);
+var addOne = function addOne() {
+  return console.log('+1');
+};
+
+var minusOne = function minusOne() {
+  return console.log('-1');
+};
+
+var reset = function reset() {
+  return console.log('reset');
+};
+
+var templateTwo = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Count: ", count), /*#__PURE__*/React.createElement("button", {
+  onClick: addOne
+}, "+1"), /*#__PURE__*/React.createElement("button", {
+  onClick: minusOne
+}, "-1"), /*#__PURE__*/React.createElement("button", {
+  onClick: reset
+}, "Reset"));
+var appRoot = document.getElementById('app');
+ReactDOM.render(templateTwo, appRoot);
