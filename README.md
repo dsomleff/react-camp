@@ -12,3 +12,4 @@ Here is the list of main topics covered by the course.
 - JSX Basics
 - JSX Conditional Rendering
 - ES6: let, const, arrow functions
+- Events (onClick, Manual Data Binding)
