@@ -1,7 +1,7 @@
 console.log('App is running');
 
 /**
- * object
+ * object for app content
  */
 const app = {
 	title: 'Indecision App',
@@ -50,9 +50,11 @@ const render = () => {
 			<p>{ app.options.length > 0 ? 'Here are your options' : 'No options' }</p>
 			<p>{ app.options.length }</p>
 			<button onClick={ removeOptions }>Remove All</button>
+
 			<ol>
-				<li>Item one</li>
-				<li>Item two</li>
+				{
+					app.options.map((option) => <li key={ option }>{ option }</li>)
+				}
 			</ol>
 
 			<form onSubmit={ onFormSubmit }>

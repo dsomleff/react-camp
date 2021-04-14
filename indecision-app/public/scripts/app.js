@@ -2,7 +2,7 @@
 
 console.log('App is running');
 /**
- * object
+ * object for app content
  */
 
 var app = {
@@ -48,7 +48,11 @@ var appRoot = document.getElementById('app');
 var render = function render() {
   var template = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, app.title), app.subtitle && /*#__PURE__*/React.createElement("p", null, app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are your options' : 'No options'), /*#__PURE__*/React.createElement("p", null, app.options.length), /*#__PURE__*/React.createElement("button", {
     onClick: removeOptions
-  }, "Remove All"), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item one"), /*#__PURE__*/React.createElement("li", null, "Item two")), /*#__PURE__*/React.createElement("form", {
+  }, "Remove All"), /*#__PURE__*/React.createElement("ol", null, app.options.map(function (option) {
+    return /*#__PURE__*/React.createElement("li", {
+      key: option
+    }, option);
+  })), /*#__PURE__*/React.createElement("form", {
     onSubmit: onFormSubmit
   }, /*#__PURE__*/React.createElement("input", {
     type: "text",
