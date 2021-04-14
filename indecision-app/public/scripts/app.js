@@ -27,13 +27,23 @@ var onFormSubmit = function onFormSubmit(e) {
   }
 };
 /**
- * Button Event
+ * Remove-All-Button Event
  */
 
 
 var removeOptions = function removeOptions() {
   app.options = [];
   render();
+};
+/**
+ * What-should-I-do?-Button Logic
+ */
+
+
+var onMakeDecision = function onMakeDecision() {
+  var randomNum = Math.floor(Math.random() * app.options.length);
+  var option = app.options[randomNum];
+  alert(option);
 };
 /**
  * DOM Element
@@ -46,7 +56,10 @@ var appRoot = document.getElementById('app');
  */
 
 var render = function render() {
-  var template = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, app.title), app.subtitle && /*#__PURE__*/React.createElement("p", null, app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are your options' : 'No options'), /*#__PURE__*/React.createElement("p", null, app.options.length), /*#__PURE__*/React.createElement("button", {
+  var template = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, app.title), app.subtitle && /*#__PURE__*/React.createElement("p", null, app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are your options' : 'No options'), /*#__PURE__*/React.createElement("button", {
+    disabled: app.options.length === 0,
+    onClick: onMakeDecision
+  }, "What should I do?"), /*#__PURE__*/React.createElement("button", {
     onClick: removeOptions
   }, "Remove All"), /*#__PURE__*/React.createElement("ol", null, app.options.map(function (option) {
     return /*#__PURE__*/React.createElement("li", {
