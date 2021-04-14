@@ -1,52 +1,68 @@
 console.log('App is running');
 
-//JSX - JavaScript XML
+/**
+ * object
+ */
 const app = {
 	title: 'Indecision App',
-	subtitle: 'Some info',
-	options: ['One', 'Two']
+	subtitle: 'Put your life in the our hands😈',
+	options: []
 };
 
-const template = (
-	<div>
-		<h1>{ app.title }</h1>
-		{ app.subtitle && <p>{ app.subtitle }</p> }
-		<p>{ app.options.length > 0 ? 'Here are your options' : 'No options' }</p>
-		<ol>
-			<li>Item one</li>
-			<li>Item two</li>
-		</ol>
-	</div>
-);
+/**
+ *
+ * Form Event
+ * @param {event} e
+ */
+const onFormSubmit = (e) => {
+	e.preventDefault();
 
-// Events
-let count = 0;
-const addOne = () => {
-	count++;
-	renderCounterApp();
-};
-const minusOne = () => {
-	count--;
-	renderCounterApp();
-};
-const reset = () => {
-	count = 0;
-	renderCounterApp();
+	const option = e.target.elements.option.value;
+
+	if (option) {
+		app.options.push(option);
+		e.target.elements.option.value = '';
+		render();
+	}
 };
 
+/**
+ * Button Event
+ */
+const removeOptions = () => {
+	app.options = [];
+	render();
+};
+
+/**
+ * DOM Element
+ */
 const appRoot = document.getElementById('app');
 
-const renderCounterApp = () => {
-	const templateTwo = (
+/**
+ * Display Changes
+ */
+const render = () => {
+	const template = (
 		<div>
-			<h1>Count: { count }</h1>
-			<button onClick={ addOne }>+1</button>
-			<button onClick={ minusOne }>-1</button>
-			<button onClick={ reset }>Reset</button>
+			<h1>{ app.title }</h1>
+			{ app.subtitle && <p>{ app.subtitle }</p> }
+			<p>{ app.options.length > 0 ? 'Here are your options' : 'No options' }</p>
+			<p>{ app.options.length }</p>
+			<button onClick={ removeOptions }>Remove All</button>
+			<ol>
+				<li>Item one</li>
+				<li>Item two</li>
+			</ol>
+
+			<form onSubmit={ onFormSubmit }>
+				<input type="text" name="option"/>
+				<button>Add Option</button>
+			</form>
 		</div>
 	);
 
-	ReactDOM.render(templateTwo, appRoot);
+	ReactDOM.render(template, appRoot);
 };
 
-renderCounterApp();
+render();
