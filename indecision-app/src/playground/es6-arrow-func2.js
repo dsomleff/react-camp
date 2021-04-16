@@ -25,6 +25,25 @@ const user = {
   }
 };
 
+// BUT next is work
+const Context = function() {
+  const city = {
+    name: 'Odesa',
+    f1: function() {
+      return this.name;
+    },
+    f2() {
+      return this.name;
+    }
+  };
+  return city;
+};
+
+const city = new Context();
+console.log(city.f1());
+console.log(city.f2());
+
+// In arrow function {this keyword} is working!
 const userArrow = {
   name: 'Ju',
   cities: ['Kurahove', 'Odessa', 'Bratislava'],
