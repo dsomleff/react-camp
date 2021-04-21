@@ -16,3 +16,4 @@ Here is the list of main topics covered by the course.
 - Forms & Inputs
 - Arrays in JSX
 - ES6: classes
+- React Component
