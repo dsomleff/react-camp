@@ -1,77 +1,40 @@
 "use strict";
 
-console.log('App is running');
-/**
- * object for app content
- */
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var app = {
-  title: 'Indecision App',
-  subtitle: 'Put your life in the our hands😈',
-  options: []
-};
-/**
- *
- * Form Event
- * @param {event} e
- */
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-var onFormSubmit = function onFormSubmit(e) {
-  e.preventDefault();
-  var option = e.target.elements.option.value;
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-  if (option) {
-    app.options.push(option);
-    e.target.elements.option.value = '';
-    render();
+var Person = /*#__PURE__*/function () {
+  function Person() {
+    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Anonymous';
+    var age = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+    _classCallCheck(this, Person);
+
+    this.name = name;
+    this.age = age;
   }
-};
-/**
- * Remove-All-Button Event
- */
 
+  _createClass(Person, [{
+    key: "getGreeting",
+    value: function getGreeting() {
+      return "Hello ".concat(this.name, "!");
+    }
+  }, {
+    key: "getDescription",
+    value: function getDescription() {
+      return "".concat(this.name, " is ").concat(this.age, " year(s) old.");
+    }
+  }]);
 
-var removeOptions = function removeOptions() {
-  app.options = [];
-  render();
-};
-/**
- * What-should-I-do?-Button Logic
- */
+  return Person;
+}();
 
-
-var onMakeDecision = function onMakeDecision() {
-  var randomNum = Math.floor(Math.random() * app.options.length);
-  var option = app.options[randomNum];
-  alert(option);
-};
-/**
- * DOM Element
- */
-
-
-var appRoot = document.getElementById('app');
-/**
- * Display Changes
- */
-
-var render = function render() {
-  var template = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, app.title), app.subtitle && /*#__PURE__*/React.createElement("p", null, app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are your options' : 'No options'), /*#__PURE__*/React.createElement("button", {
-    disabled: app.options.length === 0,
-    onClick: onMakeDecision
-  }, "What should I do?"), /*#__PURE__*/React.createElement("button", {
-    onClick: removeOptions
-  }, "Remove All"), /*#__PURE__*/React.createElement("ol", null, app.options.map(function (option) {
-    return /*#__PURE__*/React.createElement("li", {
-      key: option
-    }, option);
-  })), /*#__PURE__*/React.createElement("form", {
-    onSubmit: onFormSubmit
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    name: "option"
-  }), /*#__PURE__*/React.createElement("button", null, "Add Option")));
-  ReactDOM.render(template, appRoot);
-};
-
-render();
+var me = new Person('Ju Ju', 18);
+console.log(me.getGreeting());
+console.log(me.getDescription());
+var cat = new Person();
+console.log(cat.getGreeting());
+console.log(cat.getDescription());

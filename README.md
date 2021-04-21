@@ -15,3 +15,4 @@ Here is the list of main topics covered by the course.
 - Events (onClick, Manual Data Binding)
 - Forms & Inputs
 - Arrays in JSX
+- ES6: classes
