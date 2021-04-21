@@ -19,3 +19,4 @@ Here is the list of main topics covered by the course.
 - React Component
 - Nesting Components
 - Component Props
+- Events & Methods
