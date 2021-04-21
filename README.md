@@ -17,3 +17,4 @@ Here is the list of main topics covered by the course.
 - Arrays in JSX
 - ES6: classes
 - React Component
+- Nesting Components

@@ -1,4 +1,20 @@
 /**
+ * Main Component
+ */
+class IndecisionApp extends React.Component {
+	render() {
+		return (
+			<div>
+				<Header />
+				<Action />
+				<Options />
+				<AddOption />
+			</div>
+		);
+	}
+}
+
+/**
  * Header Component
  */
 class Header extends React.Component {
@@ -33,6 +49,17 @@ class Options extends React.Component {
 		return (
 			<div>
 				<h3>Options Component Here!</h3>
+				<Option />
+			</div>
+		);
+	}
+}
+
+class Option extends React.Component {
+	render() {
+		return (
+			<div>
+				Option Comp is here
 			</div>
 		);
 	}
@@ -51,14 +78,5 @@ class AddOption extends React.Component {
 	}
 }
 
-/** Usage Component Section */
-const jsx = (
-	<div>
-		<Header />
-		<Action />
-		<Options />
-		<AddOption />
-	</div>
-);
-
-ReactDOM.render(jsx, document.getElementById('app'));
+/** Usage Components Section */
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
