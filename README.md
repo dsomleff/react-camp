@@ -18,3 +18,4 @@ Here is the list of main topics covered by the course.
 - ES6: classes
 - React Component
 - Nesting Components
+- Component Props

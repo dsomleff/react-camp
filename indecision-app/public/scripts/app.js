@@ -39,7 +39,15 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
   _createClass(IndecisionApp, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement(Action, null), /*#__PURE__*/React.createElement(Options, null), /*#__PURE__*/React.createElement(AddOption, null));
+      var title = 'Indecision App';
+      var subtitle = 'Put your life in the our hands😈';
+      var options = ['one', 'two', 'Dusya'];
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
+        title: title,
+        subtitle: subtitle
+      }), /*#__PURE__*/React.createElement(Action, null), /*#__PURE__*/React.createElement(Options, {
+        options: options
+      }), /*#__PURE__*/React.createElement(AddOption, null));
     }
   }]);
 
@@ -64,7 +72,7 @@ var Header = /*#__PURE__*/function (_React$Component2) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Indecision App"), /*#__PURE__*/React.createElement("h2", null, "Put your life in the our hands\uD83D\uDE08"));
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, this.props.title), /*#__PURE__*/React.createElement("h2", null, this.props.subtitle));
     }
   }]);
 
@@ -114,12 +122,21 @@ var Options = /*#__PURE__*/function (_React$Component4) {
   _createClass(Options, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Options Component Here!"), /*#__PURE__*/React.createElement(Option, null));
+      return /*#__PURE__*/React.createElement("div", null, this.props.options.map(function (option) {
+        return /*#__PURE__*/React.createElement(Option, {
+          key: option,
+          optionText: option
+        });
+      }));
     }
   }]);
 
   return Options;
 }(React.Component);
+/**
+ * Single Option Component
+ */
+
 
 var Option = /*#__PURE__*/function (_React$Component5) {
   _inherits(Option, _React$Component5);
@@ -135,7 +152,7 @@ var Option = /*#__PURE__*/function (_React$Component5) {
   _createClass(Option, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, "Option Comp is here");
+      return /*#__PURE__*/React.createElement("div", null, "Option: ", this.props.optionText);
     }
   }]);
 
