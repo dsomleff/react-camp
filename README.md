@@ -21,3 +21,4 @@ Here is the list of main topics covered by the course.
 - Component Props
 - Events & Methods
 - Method Binding
+- Component State
