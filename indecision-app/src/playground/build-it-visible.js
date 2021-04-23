@@ -1,31 +1,49 @@
-const message = {
-  body: 'Hello there!!! Now you see me!',
-  show: false
-}
+class VisibilityToggle extends React.Component{
+  /**
+	 * @param {default} props
+	 */
+  constructor(props) {
+    super(props);
+    this.state = {
+      body: 'Hello there!!! Now you see me!',
+      show: false
+    };
+    this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
+  }
 
-const showMessage = () => {
-  message.show = !message.show;
-  render();
-};
+  /**
+   * Button Handler
+   * @returns obj
+   */
+  handleToggleVisibility() {
+    this.setState((prevState) => {
+      return {
+        show: !prevState.show
+      }
+    });
+  }
 
-const render = () => {
-  const template = (
-    <div>
+  /**
+	 * Component Usage
+	 * @returns html
+	 */
+  render() {
+    return (
+      <div>
       <h1>Visibility Toggle</h1>
-      <button onClick={ showMessage }>
-        { message.show ? 'Hide details' : 'Show details' }
+      <button onClick={ this.handleToggleVisibility }>
+        { this.state.show ? 'Hide details' : 'Show details' }
       </button>
       {
-        message.show && (
+        this.state.show && (
           <div>
-            <p>{ message.body }</p>
+            <p>{ this.state.body }</p>
           </div>
         )
       }
     </div>
-  );
+    );
+  }
+}
 
-  ReactDOM.render(template, document.getElementById('app'));
-};
-
-render();
+ReactDOM.render(<VisibilityToggle />, document.getElementById('app'));
