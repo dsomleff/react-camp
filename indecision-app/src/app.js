@@ -5,16 +5,16 @@ class IndecisionApp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			options: ['one111', 'two', 'Dusya']
+			options: []
 		};
 		this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
 		this.handlePick = this.handlePick.bind(this);
+		this.handleAddOption = this.handleAddOption.bind(this);
 	}
 
 	/**
 	 * For change state in Options Component
-	 * to pass data upstream from child
-	 * to parent Component
+	 * to reverse data flow
 	 */
 	handleDeleteOptions() {
 		this.setState(() => {
@@ -34,6 +34,28 @@ class IndecisionApp extends React.Component {
 		alert(option);
 	}
 
+	/**
+	 * For change state in Add Oprion Component
+	 * to pass data upstream from child
+	 * to parent Component
+	 */
+	handleAddOption(option) {
+		if (!option) {
+			return 'Enter valid value to add Option';
+		} else if(this.state.options.indexOf(option) > -1) {
+			return 'This Option already exist';
+		}
+
+		this.setState((prevState) => {
+			return {
+				options: prevState.options.concat(option)
+			};
+		});
+	}
+
+	/**
+	 * App Render Function
+	 */
 	render() {
 		const title = 'Indecision App';
 		const subtitle = 'Put your life in the our hands😈';
@@ -49,7 +71,9 @@ class IndecisionApp extends React.Component {
 					options={ this.state.options }
 					handleDeleteOptions={ this.handleDeleteOptions }
 				/>
-				<AddOption />
+				<AddOption
+					handleAddOption={ this.handleAddOption }
+				/>
 			</div>
 		);
 	}
@@ -120,13 +144,24 @@ class Option extends React.Component {
  * Form Component
  */
 class AddOption extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleAddOption = this.handleAddOption.bind(this);
+		this.state = {
+			error: undefined
+		};
+	}
+
 	handleAddOption(e) {
 		e.preventDefault();
 		const option = e.target.elements.option.value.trim();
+		const error = this.props.handleAddOption(option);
 
-		if (option) {
-			alert(option);
-		}
+		this.setState(() => {
+			return {
+				error // this is equal next error: error
+			};
+		});
 	}
 
 	render() {
@@ -136,6 +171,7 @@ class AddOption extends React.Component {
 					<input type="text" name="option"/>
 					<button>Add Option</button>
 				</form>
+				{ this.state.error && <p>{ this.state.error }</p> }
 			</div>
 		);
 	}
