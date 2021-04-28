@@ -12,10 +12,8 @@ class IndecisionApp extends React.Component {
 		this.handleAddOption = this.handleAddOption.bind(this);
 	}
 
-	/**
-	 * For change state in Options Component
-	 * to reverse data flow
-	 */
+	// For change state in Options Component
+	// to reverse data flow
 	handleDeleteOptions() {
 		this.setState(() => {
 			return {
@@ -24,21 +22,17 @@ class IndecisionApp extends React.Component {
 		});
 	}
 
-	/**
-	 * For change state in Action Component
-	 * to reverse data flow
-	 */
+	// For change state in Action Component
+	// to reverse data flow
 	handlePick() {
 		const randomNum = Math.floor(Math.random() * this.state.options.length);
 		const option = this.state.options[randomNum];
 		alert(option);
 	}
 
-	/**
-	 * For change state in Add Oprion Component
-	 * to pass data upstream from child
-	 * to parent Component
-	 */
+	// For change state in Add Oprion Component
+	// to pass data upstream from child
+	// to parent Component
 	handleAddOption(option) {
 		if (!option) {
 			return 'Enter valid value to add Option';
@@ -53,9 +47,7 @@ class IndecisionApp extends React.Component {
 		});
 	}
 
-	/**
-	 * App Render Function
-	 */
+	// App Render Function
 	render() {
 		const title = 'Indecision App';
 		const subtitle = 'Put your life in the our hands😈';
@@ -80,65 +72,57 @@ class IndecisionApp extends React.Component {
 }
 
 /**
- * Header Component
+ * Header Functional Component
  */
-class Header extends React.Component {
-	render() {
-		return (
-			<div>
-				<h1>{ this.props.title }</h1>
-				<h2>{ this.props.subtitle }</h2>
-			</div>
-		);
-	}
-}
+const Header = (props) => {
+	return (
+		<div>
+			<h1>{ props.title }</h1>
+			<h2>{ props.subtitle }</h2>
+		</div>
+	);
+};
 
 /**
- * Button Component
+ * <What should I do?> Button Functional Component
  */
-class Action extends React.Component {
-	render() {
-		return (
-			<div>
-				<button
-					onClick={ this.props.handlePick }
-					disabled={ !this.props.hasOptions }
-				>
-					What should I do?
-				</button>
-			</div>
-		);
-	}
-}
+const Action = (props) => {
+	return (
+		<div>
+			<button
+				onClick={ props.handlePick }
+				disabled={ !props.hasOptions }
+			>
+				What should I do?
+			</button>
+		</div>
+	);
+};
 
 /**
- * List of Options Component
+ * List of Options Functional Component
  */
-class Options extends React.Component {
-	render() {
-		return (
-			<div>
-				<button onClick={ this.props.handleDeleteOptions }>Remove All</button>
-					{
-						this.props.options.map((option) => <Option key={ option } optionText={ option } />)
-					}
-			</div>
-		);
-	}
-}
+const Options = (props) => {
+	return (
+		<div>
+			<button onClick={ props.handleDeleteOptions }>Remove All</button>
+				{
+					props.options.map((option) => <Option key={ option } optionText={ option } />)
+				}
+		</div>
+	);
+};
 
 /**
- * Single Option Component
+ * Single Option Functional Component
  */
-class Option extends React.Component {
-	render() {
-		return (
-			<div>
-				{ this.props.optionText }
-			</div>
-		);
-	}
-}
+const Option = (props) => {
+	return (
+		<div>
+			{ props.optionText }
+		</div>
+	);
+};
 
 /**
  * Form Component
@@ -176,6 +160,15 @@ class AddOption extends React.Component {
 		);
 	}
 }
+
+// const User = (props) => {
+// 	return (
+// 		<div>
+// 			<p>Name: { props.name }</p>
+// 			<p>Age: { props.age }</p>
+// 		</div>
+// 	);
+// };
 
 /** Usage Components Section */
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
