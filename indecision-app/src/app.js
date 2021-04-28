@@ -5,7 +5,7 @@ class IndecisionApp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			options: []
+			options: props.options
 		};
 		this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
 		this.handlePick = this.handlePick.bind(this);
@@ -49,12 +49,11 @@ class IndecisionApp extends React.Component {
 
 	// App Render Function
 	render() {
-		const title = 'Indecision App';
 		const subtitle = 'Put your life in the our hands😈';
 
 		return (
 			<div>
-				<Header title={ title } subtitle={ subtitle } />
+				<Header subtitle={ subtitle } />
 				<Action
 					hasOptions={ this.state.options.length > 0 }
 					handlePick={ this.handlePick }
@@ -70,6 +69,9 @@ class IndecisionApp extends React.Component {
 		);
 	}
 }
+IndecisionApp.defaultProps = {
+	options: []
+};
 
 /**
  * Header Functional Component
@@ -78,9 +80,12 @@ const Header = (props) => {
 	return (
 		<div>
 			<h1>{ props.title }</h1>
-			<h2>{ props.subtitle }</h2>
+			{ props.subtitle && <h2>{ props.subtitle }</h2> }
 		</div>
 	);
+};
+Header.defaultProps = {
+	title: 'Indecision App'
 };
 
 /**
@@ -171,4 +176,4 @@ class AddOption extends React.Component {
 // };
 
 /** Usage Components Section */
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp options={ ['One', 'Two'] }/>, document.getElementById('app'));

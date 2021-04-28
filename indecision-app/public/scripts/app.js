@@ -37,7 +37,7 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      options: []
+      options: props.options
     };
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_assertThisInitialized(_this));
     _this.handlePick = _this.handlePick.bind(_assertThisInitialized(_this));
@@ -87,10 +87,8 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var title = 'Indecision App';
       var subtitle = 'Put your life in the our hands😈';
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
-        title: title,
         subtitle: subtitle
       }), /*#__PURE__*/React.createElement(Action, {
         hasOptions: this.state.options.length > 0,
@@ -106,18 +104,24 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
 
   return IndecisionApp;
 }(React.Component);
+
+IndecisionApp.defaultProps = {
+  options: []
+};
 /**
  * Header Functional Component
  */
 
-
 var Header = function Header(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), /*#__PURE__*/React.createElement("h2", null, props.subtitle));
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), props.subtitle && /*#__PURE__*/React.createElement("h2", null, props.subtitle));
+};
+
+Header.defaultProps = {
+  title: 'Indecision App'
 };
 /**
  * <What should I do?> Button Functional Component
  */
-
 
 var Action = function Action(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
@@ -209,4 +213,6 @@ var AddOption = /*#__PURE__*/function (_React$Component2) {
 /** Usage Components Section */
 
 
-ReactDOM.render( /*#__PURE__*/React.createElement(IndecisionApp, null), document.getElementById('app'));
+ReactDOM.render( /*#__PURE__*/React.createElement(IndecisionApp, {
+  options: ['One', 'Two']
+}), document.getElementById('app'));

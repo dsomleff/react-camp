@@ -7,6 +7,11 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
  - Languages: JavaScript, HTML
  - Tools: NPM, Yarn, React, ReactDOM, Babel
 
+## Scripts to Compile
+```sh
+npx babel src/app.js --out-file=public/scripts/app.js --watch
+```
+
 ## Course Description
 Here is the list of main topics covered by the course.
 - JSX Basics
@@ -23,3 +28,4 @@ Here is the list of main topics covered by the course.
 - Method Binding
 - Component State
 - Functional Component (Stateless)
+- defaultProps Values
