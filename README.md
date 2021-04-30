@@ -7,9 +7,14 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
  - Languages: JavaScript, HTML
  - Tools: NPM, Yarn, React, ReactDOM, Babel
 
-## Scripts to Compile
+## Scripts
+for Compile
 ```sh
 npx babel src/app.js --out-file=public/scripts/app.js --watch
+```
+for running local server
+```sh
+live-server public
 ```
 
 ## Course Description
