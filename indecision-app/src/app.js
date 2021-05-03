@@ -13,6 +13,21 @@ class IndecisionApp extends React.Component {
 		this.handleAddOption = this.handleAddOption.bind(this);
 	}
 
+	// Build-in React Component Method
+	componentDidMount() {
+		console.log('fetching data');
+	}
+
+	// Build-in React Component Method
+	componentDidUpdate(prevProps, prevState) {
+		console.log('ssaving data');
+	}
+
+	// Build-in React Component Method
+	componentWillUnmount() {
+		console.log('componentWillUnmount');
+	}
+
 	// For change state in Options Component
 	// to reverse data flow
 	handleDeleteOptions() {

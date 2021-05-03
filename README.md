@@ -34,3 +34,4 @@ Here is the list of main topics covered by the course.
 - Component State
 - Functional Component (Stateless)
 - defaultProps Values
+- Lifecycle Methods (for State Components Only)

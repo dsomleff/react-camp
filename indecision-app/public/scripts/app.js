@@ -44,11 +44,29 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
     _this.handlePick = _this.handlePick.bind(_assertThisInitialized(_this));
     _this.handleAddOption = _this.handleAddOption.bind(_assertThisInitialized(_this));
     return _this;
-  } // For change state in Options Component
-  // to reverse data flow
+  } // Build-in React Component Method
 
 
   _createClass(IndecisionApp, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log('fetching data');
+    } // Build-in React Component Method
+
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      console.log('ssaving data');
+    } // Build-in React Component Method
+
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      console.log('componentWillUnmount');
+    } // For change state in Options Component
+    // to reverse data flow
+
+  }, {
     key: "handleDeleteOptions",
     value: function handleDeleteOptions() {
       this.setState(function () {
