@@ -37,7 +37,7 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      options: props.options
+      options: []
     };
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_assertThisInitialized(_this));
     _this.handleDeleteOption = _this.handleDeleteOption.bind(_assertThisInitialized(_this));
@@ -151,13 +151,10 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
 
   return IndecisionApp;
 }(React.Component);
-
-IndecisionApp.defaultProps = {
-  options: []
-};
 /**
  * Header Functional Component
  */
+
 
 var Header = function Header(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), props.subtitle && /*#__PURE__*/React.createElement("h2", null, props.subtitle));

@@ -5,7 +5,7 @@ class IndecisionApp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			options: props.options
+			options: []
 		};
 		this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
 		this.handleDeleteOption = this.handleDeleteOption.bind(this);
@@ -99,9 +99,6 @@ class IndecisionApp extends React.Component {
 		);
 	}
 }
-IndecisionApp.defaultProps = {
-	options: []
-};
 
 /**
  * Header Functional Component

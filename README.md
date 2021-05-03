@@ -8,9 +8,13 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
  - Tools: NPM, Yarn, React, ReactDOM, Babel
 
 ## Scripts
-for Compile
+for compile Indesition App
 ```sh
 npx babel src/app.js --out-file=public/scripts/app.js --watch
+```
+for compile Counter App
+```sh
+npx babel src/playground/counter.js --out-file=public/scripts/app.js --watch
 ```
 for running local server
 ```sh
