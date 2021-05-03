@@ -15,12 +15,24 @@ class IndecisionApp extends React.Component {
 
 	// Build-in React Component Method
 	componentDidMount() {
-		console.log('fetching data');
+		try {
+			const json = localStorage.getItem('options');
+			const options = JSON.parse(json);
+
+			if (options) {
+				this.setState(() => ({ options }));
+			}
+		} catch(e) {
+			// Do nothing at all
+		}
 	}
 
 	// Build-in React Component Method
 	componentDidUpdate(prevProps, prevState) {
-		console.log('ssaving data');
+		if (prevState.options.length !== this.state.options.length) {
+			const json = JSON.stringify(this.state.options);
+			localStorage.setItem('options', json);
+		}
 	}
 
 	// Build-in React Component Method
@@ -129,6 +141,7 @@ const Options = (props) => {
 	return (
 		<div>
 			<button onClick={ props.handleDeleteOptions }>Remove All</button>
+			{ props.options.length === 0 && <p>Please add an option to get started!</p>}
 				{
 					props.options.map((option) => (
 						<Option
@@ -180,6 +193,10 @@ class AddOption extends React.Component {
 		this.setState(() => ({
 			error // this is equal next error: error
 		}));
+
+		if (!error) {
+			e.target.elements.option.value = ''; // clean input field
+		}
 	}
 
 	render() {
