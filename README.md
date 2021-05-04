@@ -7,7 +7,7 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
  - Languages: JavaScript, HTML
  - Tools: NPM, Yarn, React, ReactDOM, Babel
 
-## Scripts
+## Scripts for Global Modules
 for compile Indesition App
 ```sh
 npx babel src/app.js --out-file=public/scripts/app.js --watch
@@ -19,6 +19,17 @@ npx babel src/playground/counter.js --out-file=public/scripts/app.js --watch
 for running local server
 ```sh
 live-server public
+```
+
+## Scripts for Local Modules
+for compile Indesition App
+```sh
+yarn run build
+```
+
+for running local server
+```sh
+yarn run serve
 ```
 
 ## Course Description
