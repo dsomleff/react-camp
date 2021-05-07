@@ -50,3 +50,5 @@ Here is the list of main topics covered by the course.
 - Functional Component (Stateless)
 - defaultProps Values
 - Lifecycle Methods (for State Components Only)
+- Webpack Setup
+- ES6 import/export
