@@ -52,3 +52,4 @@ Here is the list of main topics covered by the course.
 - Lifecycle Methods (for State Components Only)
 - Webpack Setup
 - ES6 import/export (Named & Default)
+- One Component per File Technique
