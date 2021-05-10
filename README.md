@@ -22,7 +22,7 @@ live-server public
 ```
 
 ## Scripts for Local Modules
-for compile Indesition App
+for compile Indesition App for prod
 ```sh
 yarn run build
 ```
@@ -30,6 +30,11 @@ yarn run build
 for running local server
 ```sh
 yarn run serve
+```
+
+for running webpack devServer
+```sh
+yarn run dev-server
 ```
 
 ## Course Description
