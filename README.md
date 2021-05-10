@@ -53,3 +53,4 @@ Here is the list of main topics covered by the course.
 - Webpack Setup
 - ES6 import/export (Named & Default)
 - One Component per File Technique
+- Webpack Source Map for Debuging
