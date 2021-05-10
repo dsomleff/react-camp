@@ -16,7 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ \"./src/utils.js\");\n/* harmony import */ var _person_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./person.js */ \"./src/person.js\");\n\n\n\nconsole.log('app.js is running');\nconsole.log((0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.square)(4));\nconsole.log((0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.add)(4, 5));\nconsole.log((0,_person_js__WEBPACK_IMPORTED_MODULE_1__.isAdult)(18));\n\n\n//# sourceURL=webpack://indecision-app/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _person_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./person.js */ \"./src/person.js\");\n// import { square, add } from './utils.js';\n\n// import  subtract from './utils.js';\n// import subtract, { square, add } from './utils.js';\n\n// console.log('app.js is running');\n// console.log(square(4));\n// console.log(add(4, 5));\nconsole.log((0,_person_js__WEBPACK_IMPORTED_MODULE_0__.isAdult)(18));\nconsole.log((0,_person_js__WEBPACK_IMPORTED_MODULE_0__.default)(15));\n// console.log(subtract(2,3));\n\n\n//# sourceURL=webpack://indecision-app/./src/app.js?");
 
 /***/ }),
 
@@ -26,17 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _uti
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"isAdult\": () => (/* binding */ isAdult)\n/* harmony export */ });\nconst isAdult = (age) => age >= 18;\n\n\n\n\n//# sourceURL=webpack://indecision-app/./src/person.js?");
-
-/***/ }),
-
-/***/ "./src/utils.js":
-/*!**********************!*\
-  !*** ./src/utils.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"square\": () => (/* binding */ square),\n/* harmony export */   \"add\": () => (/* binding */ add)\n/* harmony export */ });\nconsole.log('utils is here');\n\n// inline export\nconst square = x => x * x;\n\nconst add = (a, b) => a + b;\n\n// multy export\n// export { square, add };\n\n\n//# sourceURL=webpack://indecision-app/./src/utils.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"isAdult\": () => (/* binding */ isAdult),\n/* harmony export */   \"default\": () => (/* binding */ isSenior)\n/* harmony export */ });\nconst isAdult = (age) => age >= 18;\nconst isSenior = (age) => age >= 65;\n\n\n\n\n//# sourceURL=webpack://indecision-app/./src/person.js?");
 
 /***/ })
 
