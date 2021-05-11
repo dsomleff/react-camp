@@ -3,13 +3,15 @@ import Header from './Header';
 import Action from './Action';
 import Options from './Options';
 import AddOption from './AddOption';
+import OptionModal from './OptionModal';
 
 /**
  * Main Component
  */
 export default class IndecisionApp extends React.Component {
 	state = {
-			options: []
+			options: [],
+			selectedOption: undefined
 	};
 
 	// For change state in Options Component
@@ -28,8 +30,13 @@ export default class IndecisionApp extends React.Component {
 	handlePick = () => {
 		const randomNum = Math.floor(Math.random() * this.state.options.length);
 		const option = this.state.options[randomNum];
-		alert(option);
+		this.setState(() => ({
+			selectedOption: option
+		}));
 	};
+
+	// Close Modal Window button logic
+	handleClearSelectedOption = () => this.setState(() => ({ selectedOption: undefined }));
 
 	// For change state in Add Oprion Component
 	// to pass data upstream from child
@@ -91,6 +98,10 @@ export default class IndecisionApp extends React.Component {
 				/>
 				<AddOption
 					handleAddOption={ this.handleAddOption }
+				/>
+				<OptionModal
+					selectedOption={ this.state.selectedOption }
+					handleClearSelectedOption={ this.handleClearSelectedOption }
 				/>
 			</div>
 		);

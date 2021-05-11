@@ -5,7 +5,7 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
 
 ## Tech Stack
  - Languages: JavaScript, HTML
- - Tools: NPM, Yarn, React, ReactDOM, Babel, Webpack
+ - Tools: NPM, Yarn, React, ReactDOM, React-Modal, Babel, Webpack
 
 ## Scripts for Global Modules
 for compile Indesition App
