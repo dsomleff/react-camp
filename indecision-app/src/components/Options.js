@@ -12,10 +12,10 @@ const Options = (props) => {
 				{
 					props.options.map((option) => (
 						<Option
-						key={ option }
-						optionText={ option }
-						handleDeleteOption={ props.handleDeleteOption }
-					/>
+							key={ option }
+							optionText={ option }
+							handleDeleteOption={ props.handleDeleteOption }
+						/>
 					))
 				}
 		</div>
