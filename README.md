@@ -60,3 +60,4 @@ Here is the list of main topics covered by the course.
 - One Component per File Technique
 - Webpack Source Map for Debuging and DevServer
 - ES6 Class Properties
+- Passing Children to Component

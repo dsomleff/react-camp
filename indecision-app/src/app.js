@@ -7,18 +7,20 @@ const Layout = (props) => {
   return (
     <div>
     <p>header</p>
-    { props.content }
+    { props.children }
     <p>footer</p>
     </div>
   );
 };
 
-const template = (
-  <div>
-    <h1>Page Title</h1>
-    <p>My Page Here</p>
-  </div>
-);
-
 /** Usage Components Section */
-ReactDOM.render(<Layout content={ template } />, document.getElementById('app'));
+ReactDOM.render(
+  (
+  <Layout>
+    <div>
+      <h1>Page Title</h1>
+      <p>My Page Here</p>
+    </div>
+  </Layout>
+  ), document.getElementById('app')
+);
