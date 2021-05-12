@@ -5,7 +5,7 @@ import React from 'react';
  */
 const Action = (props) => (
 	<div>
-		<button
+		<button className="big-button"
 			onClick={ props.handlePick }
 			disabled={ !props.hasOptions }
 		>
