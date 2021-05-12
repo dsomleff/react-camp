@@ -4,7 +4,7 @@
 All ideas, tasks and some solutions was created during the watching ["The Complete React Developer Course"](https://ibm-learning.udemy.com/course-dashboard-redirect/?course_id=1286908) by [Andrew Mead](https://mead.io).
 
 ## Tech Stack
- - Languages: JavaScript, HTML
+ - Languages: JavaScript, HTML, SCSS
  - Tools: NPM, Yarn, React, ReactDOM, React-Modal, Babel, Webpack
 
 ## Scripts for Global Modules
@@ -32,7 +32,7 @@ for running local server
 yarn run serve
 ```
 
-for running webpack devServer
+for running webpack devServer with watch and babel at once
 ```sh
 yarn run dev-server
 ```
@@ -61,3 +61,4 @@ Here is the list of main topics covered by the course.
 - Webpack Source Map for Debuging and DevServer
 - ES6 Class Properties
 - Passing Children to Component
+- Setting up Webpack with SCSS
