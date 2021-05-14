@@ -62,4 +62,4 @@ Here is the list of main topics covered by the course.
 - ES6 Class Properties
 - Passing Children to Component
 - Setting up Webpack with SCSS
-- Styling React App
+- Styling React App with Mobile Considerations
