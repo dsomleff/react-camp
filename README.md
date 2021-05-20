@@ -5,9 +5,14 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
 
 ## Tech Stack
  - Languages: JavaScript, HTML, SCSS, Normalize.css
- - Tools: NPM, Yarn, React, ReactDOM, React-Modal, Babel, Webpack
+ - Tools: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack
 
 ## Scripts for Global Modules
+
+for install all the dependencies
+```sh
+yarn install
+```
 for compile Indesition App
 ```sh
 npx babel src/app.js --out-file=public/scripts/app.js --watch
@@ -63,3 +68,5 @@ Here is the list of main topics covered by the course.
 - Passing Children to Component
 - Setting up Webpack with SCSS
 - Styling React App with Mobile Considerations
+- Create a Boilerplate for Apps
+- React-Router for web 101
