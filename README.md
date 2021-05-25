@@ -8,11 +8,6 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
  - Tools: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack
 
 ## Scripts for Global Modules
-
-for install all the dependencies
-```sh
-yarn install
-```
 for compile Indesition App
 ```sh
 npx babel src/app.js --out-file=public/scripts/app.js --watch
@@ -27,6 +22,11 @@ live-server public
 ```
 
 ## Scripts for Local Modules
+for install all the dependencies
+```sh
+yarn install
+```
+
 for compile Indesition App for prod
 ```sh
 yarn run build
@@ -69,4 +69,4 @@ Here is the list of main topics covered by the course.
 - Setting up Webpack with SCSS
 - Styling React App with Mobile Considerations
 - Create a Boilerplate for Apps
-- React-Router for web 101
+- React-Router for web 101 (BrowserRouter, Route, Switch)
