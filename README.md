@@ -71,3 +71,4 @@ Here is the list of main topics covered by the course.
 - Create a Boilerplate for Apps
 - React-Router for web 101 (BrowserRouter, Route, Switch)
 - Linking between Routes (Link, NavLink)
+- Organizing Routes
