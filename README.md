@@ -70,3 +70,4 @@ Here is the list of main topics covered by the course.
 - Styling React App with Mobile Considerations
 - Create a Boilerplate for Apps
 - React-Router for web 101 (BrowserRouter, Route, Switch)
+- Linking between Routes (Link, NavLink)
