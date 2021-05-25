@@ -18,12 +18,6 @@ const Header =() => (
       </li>
 
       <li>
-        <NavLink activeClassName="is-active" to="/edit">
-          Edit Expense
-        </NavLink>
-      </li>
-
-      <li>
         <NavLink activeClassName="is-active" to="/help">
           Help
         </NavLink>
