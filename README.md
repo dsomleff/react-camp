@@ -5,7 +5,7 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
 
 ## Tech Stack
  - Languages: JavaScript, HTML, SCSS, Normalize.css
- - Tools: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack
+ - Tools: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux
 
 ## Scripts for Global Modules
 for compile Indesition App
@@ -73,3 +73,4 @@ Here is the list of main topics covered by the course.
 - Linking between Routes (Link, NavLink)
 - Organizing Routes
 - Query Strings and URL Parameters
+- Redux 101 and more
