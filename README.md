@@ -73,4 +73,4 @@ Here is the list of main topics covered by the course.
 - Linking between Routes (Link, NavLink)
 - Organizing Routes
 - Query Strings and URL Parameters
-- Redux 101 and more
+- Redux, Actions
