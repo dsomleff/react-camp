@@ -8,7 +8,7 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
  - Tools: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux
 
 ## Scripts for Global Modules
-for compile Indesition App
+for compile Indecision App
 ```sh
 npx babel src/app.js --out-file=public/scripts/app.js --watch
 ```
@@ -27,7 +27,7 @@ for install all the dependencies
 yarn install
 ```
 
-for compile Indesition App for prod
+for compile Indecision App for prod
 ```sh
 yarn run build
 ```
@@ -63,7 +63,7 @@ Here is the list of main topics covered by the course.
 - Webpack Setup
 - ES6 import/export (Named & Default)
 - One Component per File Technique
-- Webpack Source Map for Debuging and DevServer
+- Webpack Source Map for Debugging and DevServer
 - ES6 Class Properties
 - Passing Children to Component
 - Setting up Webpack with SCSS
@@ -74,3 +74,4 @@ Here is the list of main topics covered by the course.
 - Organizing Routes
 - Query Strings and URL Parameters
 - Redux, Actions, Subscribing and Dynamic Actions
+- ES6 Object Destructuring
