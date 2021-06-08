@@ -20,8 +20,10 @@ const resetCount = () => ({
   type: 'RESET'
 });
 
-// Redux Store
-const store = createStore((state = { count: 0 }, action) => {
+// Reducers key concepts:
+// 1. Reducers are pure functions
+// 2. Never change state or action inside Reducer
+const countReducer = (state = { count: 0 }, action) => {
   switch(action.type) {
     case 'INCREMENT':
       return {
@@ -42,7 +44,10 @@ const store = createStore((state = { count: 0 }, action) => {
     default:
       return state;
   }
-});
+};
+
+// Redux Store
+const store = createStore(countReducer);
 
 // Call Stack
 const unsubscribe = store.subscribe(() => {

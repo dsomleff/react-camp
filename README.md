@@ -73,6 +73,7 @@ Here is the list of main topics covered by the course.
 - Linking between Routes (Link, NavLink)
 - Organizing Routes
 - Query Strings and URL Parameters
-- Redux, Actions, Subscribing and Dynamic Actions
+- Redux 101: Store, Actions, Subscribing and Dynamic Actions
 - ES6 Object Destructuring, Array Destructuring
 - Action Generators
+- Redux 101: Reducers
