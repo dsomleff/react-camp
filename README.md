@@ -76,4 +76,4 @@ Here is the list of main topics covered by the course.
 - Redux 101: Store, Actions, Subscribing and Dynamic Actions
 - ES6 Object Destructuring, Array Destructuring
 - Action Generators
-- Redux 101: Reducers
+- Redux 101: Reducers, combineReducers
