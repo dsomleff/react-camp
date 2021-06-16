@@ -78,3 +78,4 @@ Here is the list of main topics covered by the course.
 - Action Generators
 - Redux 101: Reducers, combineReducers, Spread Operator in Reducers
 - Organizing Redux
+- The Higher Order Component
