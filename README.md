@@ -77,3 +77,4 @@ Here is the list of main topics covered by the course.
 - ES6 Object Destructuring, Array Destructuring
 - Action Generators
 - Redux 101: Reducers, combineReducers, Spread Operator in Reducers
+- Organizing Redux

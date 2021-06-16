@@ -19,7 +19,7 @@ const demoState = {
 };
 
 /*
- * Actions for Expense Reduser
+ * Actions for Expense Reducer
 */
 // ADD EXPENSE ACTION
 const addExpense = (
@@ -81,7 +81,7 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
 };
 
 /*
- * Actions for Filter Reduser
+ * Actions for Filter Reducer
 */
 // SET TEXT FILTER ACTION
 const setTextFilter = (text = '') => ({
@@ -185,9 +185,9 @@ const store = createStore(
 
 store.subscribe(() => {
   const state = store.getState();
-  const visibleEpenses = getVisibleExpenses(state.expenses, state.filters);
+  const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
-  console.log(visibleEpenses);
+  console.log(visibleExpenses);
 });
 
 const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: -21000 }));
