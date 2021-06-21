@@ -12,7 +12,7 @@ import './styles/styles.scss';
 /** Usage Redux Store */
 const store = configureStore();
 
-store.dispatch(addExpense({ description: 'Water bill' }));
+store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }));
 store.dispatch(addExpense({ description: 'Gas bill' }));
 store.dispatch(setTextFilter('water'));
 
