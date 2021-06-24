@@ -4,8 +4,8 @@
 All ideas, tasks and some solutions was created during the watching ["The Complete React Developer Course"](https://ibm-learning.udemy.com/course-dashboard-redirect/?course_id=1286908) by [Andrew Mead](https://mead.io).
 
 ## Tech Stack
- - Languages: JavaScript, HTML, SCSS, Normalize.css
- - Tools: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux
+ - Languages: JavaScript, HTML, SCSS
+ - Tools: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates
 
 ## Scripts for Global Modules
 for compile Indecision App
@@ -80,3 +80,4 @@ Here is the list of main topics covered by the course.
 - Organizing Redux
 - The Higher Order Component
 - Connecting Store and Component with React-Redux
+- Date Picker / Calendar. Moment.js and Airbnb / react-dates
