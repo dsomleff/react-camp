@@ -4,10 +4,10 @@
 All ideas, tasks and some solutions was created during the watching ["The Complete React Developer Course"](https://ibm-learning.udemy.com/course-dashboard-redirect/?course_id=1286908) by [Andrew Mead](https://mead.io).
 
 ## Tech Stack
- - Languages: JavaScript, HTML, SCSS
- - Tools: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates
+ - **Languages**: JavaScript, HTML, SCSS
+ - **Tools**: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates
 \
-**Notice:** *At the time of this repo was created, react-dates provides some warning in console for React v17\* and library dev team do not provide any solution*.
+***Notice:*** *At the time of this repo was created, react-dates provides some warning in console for React v17\* and library dev team do not provide any solution*.
 
 ## Scripts for Global Modules
 for compile Indecision App
