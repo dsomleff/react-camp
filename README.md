@@ -5,7 +5,7 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
 
 ## Tech Stack
  - **Languages**: JavaScript, HTML, SCSS
- - **Tools**: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates, Redux Dev Tools
+ - **Tools**: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates, Redux Dev Tools, Jest
 \
 ***Notice:*** *At the time of this repo was created, react-dates provides some warning in console for React v17\* and library dev team do not provide any solution*.
 
@@ -23,7 +23,7 @@ for running local server
 live-server public
 ```
 
-## Scripts for Local Modules
+## Scripts for Local Modules (commands works for npm prefix as well )
 for install all the dependencies
 ```sh
 yarn install
@@ -42,6 +42,11 @@ yarn run serve
 for running webpack devServer with watch and babel at once
 ```sh
 yarn run dev-server
+```
+
+for running test
+```sh
+yarn test
 ```
 
 ## Course Description
@@ -83,3 +88,4 @@ Here is the list of main topics covered by the course.
 - The Higher Order Component
 - Connecting Store and Component with React-Redux
 - Date Picker / Calendar. Moment.js and Airbnb / react-dates
+- Testing with Jest
