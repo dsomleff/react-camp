@@ -5,9 +5,11 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
 
 ## Tech Stack
  - **Languages**: JavaScript, HTML, SCSS
- - **Tools**: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates, Redux Dev Tools, Jest, react-test-renderer
+ - **Tools**: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates, Redux Dev Tools, Jest, Enzyme, enzyme-to-json
 \
-***Notice:*** *At the time of this repo was created, react-dates provides some warning in console for React v17\* and library dev team do not provide any solution*.
+***Notice:*** *At the time of this repo was created, react-dates provides some warning in console for React v17\* and library dev team do not provide any solution.*
+\
+*Also official Enzyme version for React 17 was not released at the time this repo was created. [@wojtekmaj/enzyme-adapter-react-17](https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17) was used instead.*
 
 ## Scripts for Global Modules
 for compile Indecision App
@@ -44,7 +46,7 @@ for running webpack devServer with watch and babel at once
 yarn run dev-server
 ```
 
-for running test
+for running test with watcher
 ```sh
 yarn test
 ```
@@ -90,4 +92,5 @@ Here is the list of main topics covered by the course.
 - Date Picker / Calendar. Moment.js and Airbnb / react-dates
 - Testing with Jest
 - Snapshot Testing (Jest feature) for components
-- react-test-renderer (Shallow and Full DOM rendering)
+- Testing components with Enzyme and enzyme-to-json
+- Testing with Shallow and Full DOM rendering
