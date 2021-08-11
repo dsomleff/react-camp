@@ -46,7 +46,7 @@ for running webpack devServer with watch and babel at once
 yarn run dev-server
 ```
 
-for running test with watcher
+for running test with watcher (--watchAll)
 ```sh
 yarn test
 ```
