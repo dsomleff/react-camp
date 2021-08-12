@@ -94,3 +94,4 @@ Here is the list of main topics covered by the course.
 - Snapshot Testing (Jest feature) for components
 - Testing components with Enzyme and enzyme-to-json
 - Testing with Shallow and Full DOM rendering
+- Test Spies or mocked functions
