@@ -95,4 +95,4 @@ Here is the list of main topics covered by the course.
 - Testing components with Enzyme and enzyme-to-json
 - Testing with Shallow and Full DOM rendering
 - Test Spies or mocked functions
-- Deployment: Webpack for production
+- Deployment: Webpack for production, Creating Separate CSS Files
