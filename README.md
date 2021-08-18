@@ -11,6 +11,9 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
 \
 *Also official Enzyme version for React 17 was not released at the time this repo was created. [@wojtekmaj/enzyme-adapter-react-17](https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17) was used instead.*
 
+## App link
+Expensify App -  https://react-camp-expensify-app.herokuapp.com
+
 ## Scripts for Global Modules
 for compile Indecision App
 ```sh
@@ -19,10 +22,6 @@ npx babel src/app.js --out-file=public/scripts/app.js --watch
 for compile Counter App
 ```sh
 npx babel src/playground/counter.js --out-file=public/scripts/app.js --watch
-```
-for running local server
-```sh
-live-server public
 ```
 
 ## Scripts for Local Modules (commands works for npm prefix as well )
@@ -36,12 +35,7 @@ for compile Indecision App for prod
 yarn run build
 ```
 
-for running local server
-```sh
-yarn run serve
-```
-
-for running webpack devServer with watch and babel at once
+for running webpack devServer with watch and babel at once (Expensify App)
 ```sh
 yarn run dev-server
 ```
@@ -49,6 +43,12 @@ yarn run dev-server
 for running test with watcher (--watchAll)
 ```sh
 yarn test
+```
+
+## Scripts for Heroku Deployment
+Deploy Git subdirectory to Heroku
+```sh
+git subtree push --prefix expensify-app heroku master
 ```
 
 ## Course Description
