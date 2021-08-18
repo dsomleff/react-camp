@@ -4,3 +4,8 @@
 /boilerplate-v1/node_modules
 /portfolio-app/node_modules
 /expensify-app/src/tests/components/__snapshots__
+/expensify-app/public/bundle.js
+/expensify-app/public/bundle.js.LICENSE.txt
+/expensify-app/public/bundle.js.map
+/expensify-app/public/styles.css
+/expensify-app/public/styles.css.map

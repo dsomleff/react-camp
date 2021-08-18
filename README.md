@@ -5,7 +5,7 @@ All ideas, tasks and some solutions was created during the watching ["The Comple
 
 ## Tech Stack
  - **Languages**: JavaScript, HTML, SCSS
- - **Tools and Libraries**: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates, Redux Dev Tools, Jest, Enzyme, enzyme-to-json
+ - **Tools and Libraries**: NPM, Yarn, React, ReactDOM, React-Modal, React-Router, Babel, Webpack, Redux, Normalize.css, Moment.js, Airbnb/react-dates, Redux Dev Tools, Jest, Enzyme, enzyme-to-json, Express
 \
 ***Notice:*** *At the time of this repo was created, react-dates provides some warning in console for React v17\* and library dev team do not provide any solution.*
 \
@@ -95,4 +95,4 @@ Here is the list of main topics covered by the course.
 - Testing components with Enzyme and enzyme-to-json
 - Testing with Shallow and Full DOM rendering
 - Test Spies or mocked functions
-- Deployment: Webpack for production, Creating Separate CSS Files
+- Deployment: Webpack for production, Creating Separate CSS Files, Prod Server with Express
