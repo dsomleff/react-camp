@@ -32,7 +32,6 @@ test('should render ExpenseListFilters with alt data correctly', () => {
   wrapper.setProps({
     filters: altFilters
   });
-
   expect(wrapper).toMatchSnapshot();
 });
 
@@ -41,7 +40,6 @@ test('should handle text change', () => {
   wrapper.find('input').simulate('change', {
     target: { value }
   });
-
   expect(setTextFilter).toHaveBeenLastCalledWith(value);
 });
 
@@ -53,7 +51,6 @@ test('should sort by date', () => {
   wrapper.find('select').simulate('change', {
     target: { value }
   });
-
   expect(sortByDate).toHaveBeenCalled();
 });
 
@@ -62,7 +59,6 @@ test('should sort by amount', () => {
   wrapper.find('select').simulate('change', {
     target: { value }
   });
-
   expect(sortByAmount).toHaveBeenCalled();
 });
 
