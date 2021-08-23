@@ -2,25 +2,32 @@
  * Actions for Expenses Reducer
 */
 import { v4 as uuidv4 } from 'uuid';
+import database from '../firebase/firebase';
 
 // ADD EXPENSE ACTION
-export const addExpense = (
-  {
-    description = '',
-    amount = 0,
-    createdAt = 0,
-    note = ''
-  } = {}
-) => ({
+export const addExpense = (expense) => ({
   type: 'ADD_EXPENSE',
-  expense: {
-    id: uuidv4(),
-    description,
-    amount,
-    createdAt,
-    note
-  }
+  expense
 });
+
+export const startAddExpense = (expenseData = {}) => {
+  return (dispatch) => {
+    const {
+      description = '',
+      amount = 0,
+      createdAt = 0,
+      note = ''
+    } = expenseData;
+    const expense = { description, note, amount, createdAt };
+
+    database.ref('expenses').push(expense).then((ref) => {
+      dispatch(addExpense({
+        id:  ref.key,
+        ...expense
+      }));
+    });
+  };
+};
 
 // REMOVE EXPENSE ACTION
 export const removeExpense = ({ id } = {}) => ({
