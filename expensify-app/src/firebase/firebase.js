@@ -30,16 +30,12 @@ database.ref().set({
   console.log('Failed', e);
 });
 
-// database.ref().set('This is my data.');
+database.ref('isSingle').set(null);
 
-// database.ref('age').set(27);
-// database.ref('location/city').set('New York');
-
-database.ref('attributes').set({
-  height: 73,
-  weight: 150
-}).then(() => {
-  console.log('Second set worked');
-}).catch((e) => {
-  console.log('Failed 2d time', e);
-});
+// database.ref()
+//   .remove()
+//   .then(() => {
+//     console.log('Data was removed');
+//   }).catch((e) => {
+//     console.log(e);
+//   });
