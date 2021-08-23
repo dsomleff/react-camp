@@ -96,4 +96,4 @@ Here is the list of main topics covered by the course.
 - Testing with Shallow and Full DOM rendering
 - Test Spies or mocked functions
 - Deployment: Webpack for production, Creating Separate CSS Files, Prod Server with Express
-- Firebase DB: Writing, Promises, Removing, Updating
+- Firebase DB: Promises and Writing, Removing, Updating, Fetching (CRUD) data
