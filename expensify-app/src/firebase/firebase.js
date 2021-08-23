@@ -19,10 +19,14 @@ const database = firebase.database();
 database.ref().set({
   name: 'Holy Cow',
   age: 26,
-  isSingle: false,
+  stressLevel: 6,
+  job: {
+    title: 'Software duck',
+    company: 'IBM'
+  },
   location: {
-    city: 'Philadelphia',
-    country: 'United States'
+    city: 'Odesa',
+    country: 'Ukraine'
   }
 }).then(() => {
   console.log('Data is saved!');
@@ -30,7 +34,11 @@ database.ref().set({
   console.log('Failed', e);
 });
 
-database.ref('isSingle').set(null);
+database.ref().update({
+  stressLevel: 9,
+  'job/company': 'Amazon',
+  'location/city': 'Kiev'
+});
 
 // database.ref()
 //   .remove()

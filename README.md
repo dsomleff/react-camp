@@ -51,7 +51,7 @@ Deploy Git subdirectory to Heroku
 git subtree push --prefix expensify-app heroku master
 ```
 
-## Course Description
+## Course Description (Covered Topics)
 Here is the list of main topics covered by the course.
 - JSX Basics
 - JSX Conditional Rendering
@@ -96,4 +96,4 @@ Here is the list of main topics covered by the course.
 - Testing with Shallow and Full DOM rendering
 - Test Spies or mocked functions
 - Deployment: Webpack for production, Creating Separate CSS Files, Prod Server with Express
-- Firebase DB: Writing, Promises, Removing
+- Firebase DB: Writing, Promises, Removing, Updating
