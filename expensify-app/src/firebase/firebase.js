@@ -16,15 +16,56 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref().on('value', (snapshot) => {
-  console.log(
-    `${snapshot.val().name} is ${snapshot.val().job.title}`
-  );
+//child_removed
+database.ref('expenses').on('child_removed', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
 });
 
-database.ref().update({
-  'name': 'Nocturnal Cow!'
+// child_changed
+database.ref('expenses').on('child_changed', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
 });
+
+// child_added
+database.ref('expenses').on('child_added', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+// database.ref('expenses')
+//   .on('value', (snapshot) => {
+//     const expenses = [];
+
+//     snapshot.forEach((childSnapshot) => {
+//       expenses.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val()
+//       });
+//     });
+
+//     console.log(expenses);
+//   });
+
+database.ref('expenses').push({
+  description: 'Coffee',
+  note: '',
+  amount: 21600,
+  createdAt: 19082021
+});
+
+// database.ref('notes').push({
+//   title: 'Course Desc',
+//   body: 'React & Node'
+// });
+
+// database.ref().on('value', (snapshot) => {
+//   console.log(
+//     `${snapshot.val().name} is ${snapshot.val().job.title}`
+//   );
+// });
+
+// database.ref().update({
+//   'name': 'Nocturnal Cow!'
+// });
 
 // const onValueChanged = database.ref().on('value', (snapshot) => {
 //   console.log(snapshot.val());
