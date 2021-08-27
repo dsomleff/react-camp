@@ -98,4 +98,4 @@ Here is the list of main topics covered by the course.
 - Deployment: Webpack for production, Creating Separate CSS Files, Prod Server with Express
 - Firebase DB: Promises and Writing, Removing, Updating, Fetching (CRUD) data.
 - Array Data in Firebase
-- Firebase with Redux (Asynchronous Actions)
+- Firebase with Redux (Asynchronous Actions) with Async Action Testing and Test Database
