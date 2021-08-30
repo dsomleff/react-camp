@@ -8,7 +8,7 @@
     "build:dev": "webpack --mode development",
     "build:prod": "webpack --mode production",
     "dev-server": "webpack serve --mode development",
-    "test": "jest --config=jest.config.json --runInBand --watchAll",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.json --runInBand --watchAll",
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build:prod"
   },
@@ -44,7 +44,9 @@
   "devDependencies": {
     "@types/react-dates": "^21.8.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
+    "dotenv": "^10.0.0",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "jest": "^27.0.6",
