@@ -5,3 +5,6 @@
 /expensify-app/node_modules
 /expensify-app/src/tests/components/__snapshots__
 /expensify-app/public/dist/
+/expensify-app/.env.development
+/expensify-app/.env.test
+.idea
