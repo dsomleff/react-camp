@@ -9,6 +9,7 @@ import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
 import './firebase/firebase';
+import LoadingPage from './components/LoadingPage';
 
 /** Usage Redux Store */
 const store = configureStore();
@@ -19,7 +20,7 @@ const jsx = (
     <AppRouter />
   </Provider>
 );
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.getElementById('app'));
