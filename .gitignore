@@ -2,8 +2,15 @@
 /indecision-app/node_modules
 /boilerplate-v1/node_modules
 /portfolio-app/node_modules
+
 /expensify-app/node_modules
 /expensify-app/src/tests/components/__snapshots__
 /expensify-app/public/dist/
 /expensify-app/.env.development
 /expensify-app/.env.test
+
+/boilerplate-v2/node_modules
+/boilerplate-v2/src/tests/components/__snapshots__
+/boilerplate-v2/public/dist/
+/boilerplate-v2/.env.development
+/boilerplate-v2/.env.test
