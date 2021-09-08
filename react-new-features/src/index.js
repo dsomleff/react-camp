@@ -9,20 +9,25 @@ const App = (props) => {
     Both parameters can be named whatever you like
     both of them comes from useState().
 
-    useState() allow us to use state in functional components
-    and that is the Hook
+    1.useState() allow us to use state in functional components
+    and this state is not suppose to be an object
+    it can be a string or boolean.
+    2.useState() can be called multiple times.
+    3.Using/Updating useState() it completely replace what was before.
+    And that is the Hook.
+    For object components we still need an object in state.
   */
   const [count, setCount] = useState(props.count);
-  const increment = () => {
-    setCount(count + 1);
-  };
+  const increment = () => setCount(count + 1);
+  const [text, setText] = useState('');
 
   return (
     <div>
-      <p>The current count is {count}</p>
+      <p>The current {text || 'count'} is {count}</p>
       <button onClick={increment}>+1</button>
       <button onClick={() => setCount(count - 1)}>-1</button>
       <button onClick={() => setCount(props.count)}>Reset</button>
+      <input value={text}  onChange={(e) => setText(e.target.value)}/>
     </div>
   );
 };
