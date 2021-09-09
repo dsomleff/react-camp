@@ -99,4 +99,4 @@ Here is the list of main topics covered by the course.
 - Firebase DB: Promises and Writing, Removing, Updating, Fetching (CRUD) data.
 - Array Data in Firebase
 - Firebase with Redux (Asynchronous Actions) with Async Action Testing and Test Database
-- useState Hook
+- React Hooks (more details in `react-new-feature/README.md`)

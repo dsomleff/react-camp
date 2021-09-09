@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 const NoteApp = () => {
-  const notesData = JSON.parse(localStorage.getItem('notes'));
-  const [notes, setNotes] = useState(notesData || []);
+  const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+
   const addNote = (e) => {
     e.preventDefault();
     setNotes([
@@ -14,12 +14,20 @@ const NoteApp = () => {
     setTitle('');
     setBody('');
   };
+
   const removeNote = (title) => {
     setNotes(notes.filter((note) => note.title !== title));
   };
+
+  useEffect(() => {
+    const notesData = JSON.parse(localStorage.getItem('notes'));
+
+    if (notesData) setNotes(notesData);
+  }, []);
+
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
-  });
+  }, [notes]);
 
   return (
     <div>
