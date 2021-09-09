@@ -45,6 +45,11 @@ for running test with watcher (--watchAll)
 yarn test
 ```
 
+for running monsters-app
+```sh
+yarn start
+```
+
 ## Scripts for Heroku Deployment
 Deploy Git subdirectory to Heroku
 ```sh
