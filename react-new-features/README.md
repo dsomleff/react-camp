@@ -13,8 +13,6 @@
 - empty array as second argument, allows use useEffect() only once, when page loaded
 - clean up function; works like unMount feature
 
-### useReducer()
-
 ## Content
 - Installation of [create-react-app](https://github.com/facebook/create-react-app)
-- Hooks: useState(), useEffect(), useReducer()
+- Hooks: useState(), useEffect(), useReducer(), Context API, useContext()
