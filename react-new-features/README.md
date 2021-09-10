@@ -15,4 +15,4 @@
 
 ## Content
 - Installation of [create-react-app](https://github.com/facebook/create-react-app)
-- Hooks: useState(), useEffect(), useReducer(), Context API, useContext()
+- Hooks: useState(), useEffect(), useReducer(), Context API, useContext(), Fragments
