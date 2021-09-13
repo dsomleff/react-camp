@@ -6,3 +6,5 @@
 - Everything inside `{}` in JSX is JavaScript expression.
 - As soon as `state` changed/updated, React re-render component.
 - When we render array of elements in JSX, for each element we need provide unique `key`, that React can distinguish them. So React, by using `key` re-render only updated element and do not touch others.
+- `Life Cycle Methods` - methods that get called at different stages of when our components get rendered.
+- `componentDidMount()` - calls when React render component on the page for a first time. It's a React.Component method.
