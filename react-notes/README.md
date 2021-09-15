@@ -10,6 +10,7 @@
 - `componentDidMount()` - calls when React render component on the page for a first time. It's a React.Component method (Life Cycle Method).
 - `props` - property that specified in Component tag `<Component propName="propValue"/>`. Exist for both types of Component.
 - `children` of props - any info located between Component's tags `<Component>Children Props</Component>`
+- `Class Methods` - A good rule of thumb is this: Use arrow functions on any class methods you define and aren't part of React (i.e. `render()`, `componentDidMount()`). Because of Logical Scope and `this` bounding.
 
 ### Functional Based Components
 - Used when we need just render some data (from props) to basic html.

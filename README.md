@@ -3,7 +3,7 @@
 ## Spec
 All ideas, tasks and some solutions was created during the watching ["The Complete React Developer Course"](https://ibm-learning.udemy.com/course-dashboard-redirect/?course_id=1286908) by [Andrew Mead](https://mead.io) and ["Complete React Developer in 2021"](https://ibm-learning.udemy.com/course/complete-react-developer-zero-to-mastery/) by [Andrei Neagoie](https://ibm-learning.udemy.com/user/andrei-neagoie/) and [Yihua Zhang](https://ibm-learning.udemy.com/user/yihua-zhang-5/).
 
-Summary Notes may be found in `monsters-app/README.md`.
+Summary Notes may be found in `react-notes/README.md`.
 
 ## Tech Stack
  - **Languages**: JavaScript, HTML, SCSS
