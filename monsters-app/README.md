@@ -19,4 +19,3 @@
 - State data can be pass as a parameter into Component and Component receive it as a prop(s).
 - State lives in a one place and can be passed multiple times  as a props, into Components.
 - if we want to do something with `state` right after we set it, we need to use callback inside `setState` function, like `this.setState({ stateField: value }, () => {})`
--
