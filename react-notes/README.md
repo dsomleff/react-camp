@@ -1,7 +1,7 @@
 # React Basics
 
-## Class Based and Functional Based Component
-- Allow us to use `state` (js object with data with we like to provide for render inside our component). Function component do NOT have state. For this we use constructor with `this.state` property.
+## Class Based (CBC) and Functional Based Component (FBC)
+- Allow us to use `state` (js object with data with we like to provide for render inside our component). FBC do NOT have state. For this we use constructor with `this.state` property.
 - You NOT allowed to modify `state` without calling `setState()`.
 - Everything inside `{}` in JSX is JavaScript expression.
 - As soon as `state` changed/updated, React re-render component.
@@ -20,3 +20,7 @@
 - State data can be pass as a parameter into Component and Component receive it as a prop(s).
 - State lives in a one place and can be passed multiple times  as a props, into Components.
 - if we want to do something with `state` right after we set it, we need to use callback inside `setState` function, like `this.setState({ stateField: value }, () => {})`
+- `this.setState()` is asynchronous function. Any time when `state` is updated, there is the chance it wound't be accurate, because of script-run-time delay. So we need use `setState((prevState) => {stateParams: prevState.newData})` which guarantee us correct state update. Same true for `prevProps`.
+- If we need to use `state` right after update, pass arrow function as second parameter into `this.setState()`.
+- `Props` possible to pass into CBC. to call them and get access via `constructor(props)` and `super(props)`. Now inside `this.state` we have access to `this.props`.
+- Sometimes `state` may be declare without `constructor` in CBC.
