@@ -6,8 +6,12 @@
 - Everything inside `{}` in JSX is JavaScript expression.
 - As soon as `state` changed/updated, React re-render component.
 - When we render array of elements in JSX, for each element we need provide unique `key`, that React can distinguish them. So React, by using `key` re-render only updated element and do not touch others.
-- `LifeCycle Methods` - methods that get called at different stages of when our components get rendered.
-- `componentDidMount()` - calls when React render component on the page for a first time. It's a React.Component method (Life Cycle Method).
+- `LifeCycle Methods` - methods that get called at different stages of when our components get rendered. Exist only in CBC.
+- `componentDidMount()` - calls when React render component on the page for a first time and default state was initiate. It's a React.Component method (`Life Cycle Method`).
+- `componentDidUpdate()` - calls after `state's` changes and React updates the DOM. It re-render only necessary (updated) part of HTML, so page DO NOT bootstrapped from scratch. It's allows our apps work faster, because mount process expensive for browsers.
+- React-update-state-cycle trigger a chain reaction. If parent was changed, so React tries to re-render children as well.
+- `shouldComponentUpdate` - helps to figure out when Component should be re-rendered. If state remains the same, but  action was triggered somehow, React will not updates the DOM.
+- `componentWillUnMount` - if you want to do something once when component is going to unmounted.
 - `props` - property that specified in Component tag `<Component propName="propValue"/>`. Exist for both types of Component.
 - `children` of props - any info located between Component's tags `<Component>Children Props</Component>`
 - `Class Methods` - A good rule of thumb is this: Use arrow functions on any class methods you define and aren't part of React (i.e. `render()`, `componentDidMount()`). Because of Logical Scope and `this` bounding.
