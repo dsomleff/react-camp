@@ -1,7 +1,11 @@
+import { withRouter } from 'react-router-dom';
 import './shop-item.styles.scss';
 
-const ShopItem = ({ title, imageUrl, size }) => (
-   <div className={`${size} shop-item`}>
+const ShopItem = ({ title, imageUrl, size, history, match, linkUrl }) => (
+   <div
+    className={`${size} shop-item`}
+    onClick={() => history.push(`${match.url}${linkUrl}`)}
+  >
       <div
         className='background-image'
         style={{ backgroundImage: `url(${imageUrl})` }}
@@ -15,4 +19,4 @@ const ShopItem = ({ title, imageUrl, size }) => (
   </div>
 );
 
-export default ShopItem;
+export default withRouter(ShopItem);

@@ -36,7 +36,7 @@
 - `component` name a Component that should be rendered by visiting `path`.
 - `exact` means that specified url must be completely the same. We have 2 routes: `/`(main or entry page) and `/hello`. Slash (`/`) present in both cases. And without `exact` content for `/` page will be rendered for `/hello` as well.
 - `Switch` Router Component that wrap all `Route` and as long as one `<Route path/>` matches the browser url, then it's the only Component we're going to render. It helps to avoid accidental render of multiple Components
-- Every time when Component was bounded to `Route` it receives 3 props: `match`, `history`, `location`. You can access them by using `props.match.nameOfTheProp`.
+- Every time when Component was bounded to `Route` it receives 3 props: `match`, `history`, `location`. You can access them by using `props.match.nameOfTheProp`. This props will be accessible for parent Component only (that we specified in `<Route component={parentComponent} >`), not for it's child. To solve it use `withRouter`.
 - `match` contains `isExact`, `path`, `url` and `params`. First 3 you will get from their names, `params` it's everything what is specified after main `path` and dynamic. For example `/topic/:topicId` where `:topicId` is be present inside `params`. `:topicId` it's just a name, you can call url params whatever you like, just don't forget `:` at the beginning.
 - `history` has a `push` method that allow us to specify on which route (url) we want to sent user. `<button onClick={() => props.history.push('/topics')}>Topics </button>`.
 - `location` tell us where are we currently in our App. `location.pathname` provide exact full url.
