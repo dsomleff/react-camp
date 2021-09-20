@@ -1,8 +1,8 @@
 import React from "react";
-import MenuItem from "../menu-item/MenuItem";
-import './directory.styles.scss';
+import ShopItem from "../shop-item/ShopItem";
+import './shop.styles.scss';
 
-class Directory extends React.Component {
+class Shop extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -43,7 +43,7 @@ class Directory extends React.Component {
     <div className="directory-menu">
       {
         this.state.sections.map(({ title, imageUrl, id, size }) => (
-          <MenuItem
+          <ShopItem
             key={id}
             title={title}
             imageUrl={imageUrl}
@@ -56,4 +56,4 @@ class Directory extends React.Component {
   }
 }
 
-export default Directory;
+export default Shop;

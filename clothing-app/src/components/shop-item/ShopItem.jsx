@@ -1,7 +1,7 @@
-import './menu-item.styles.scss';
+import './shop-item.styles.scss';
 
-const MenuItem = ({ title, imageUrl, size }) => (
-   <div className={`${size} menu-item`}>
+const ShopItem = ({ title, imageUrl, size }) => (
+   <div className={`${size} shop-item`}>
       <div
         className='background-image'
         style={{ backgroundImage: `url(${imageUrl})` }}
@@ -15,4 +15,4 @@ const MenuItem = ({ title, imageUrl, size }) => (
   </div>
 );
 
-export default MenuItem;
+export default ShopItem;

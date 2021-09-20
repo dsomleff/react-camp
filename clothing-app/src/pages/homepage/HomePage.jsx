@@ -1,9 +1,9 @@
-import Directory from '../../components/directory/Directory';
+import Shop from '../../components/shop/Shop';
 import './homepage.styles.scss';
 
 const HomePage = () => (
   <div className="homepage">
-    <Directory />
+    <Shop />
   </div>
 );
 
