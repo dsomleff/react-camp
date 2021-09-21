@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from '../homepage/HomePage';
 import Header from '../../components/header/Header';
 import CollectionsPage from '../collections/CollectionsPage';
+import AuthPage from '../auth/AuthPage';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/collections' component={CollectionsPage} />
+          <Route path='/auth' component={AuthPage} />
         </Switch>
       </BrowserRouter>
     </div>

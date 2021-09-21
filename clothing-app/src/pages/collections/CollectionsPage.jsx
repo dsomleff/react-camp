@@ -14,13 +14,13 @@ class CollectionsPage extends React.Component {
     const {collections} = this.state;
 
     return (
-      <div className="collections-page">
+      <>
         {
           collections.map(({id, ...collection}) => (
             <CollectionPreview key={id} {...collection} />
           ))
         }
-      </div>
+      </>
     )
   }
 }
