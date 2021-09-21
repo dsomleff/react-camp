@@ -1,14 +1,8 @@
-import HomePage from '../homepage/HomePage';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
+import HomePage from '../homepage/HomePage';
+import CollectionsPage from '../collections/CollectionsPage';
 import './App.css';
-
-const HatsPage = (props) => (
-  <div>
-  {console.log(props)}
-    <h1>HATS PAGE</h1>
-  </div>
-);
 
 function App() {
   return (
@@ -16,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route path='/hats' component={HatsPage} />
+          <Route path='/collections' component={CollectionsPage} />
         </Switch>
       </BrowserRouter>
     </div>
