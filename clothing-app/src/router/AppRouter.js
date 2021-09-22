@@ -1,10 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
-import HomePage from '../homepage/HomePage';
-import Header from '../../components/header/Header';
-import CollectionsPage from '../collections/CollectionsPage';
-import AuthPage from '../auth/AuthPage';
-import './App.css';
+import HomePage from '../components/homepage/HomePage';
+import Header from '../components/header/Header';
+import CollectionsPage from '../components/collections/CollectionsPage';
+import AuthPage from '../components/auth/AuthPage';
 
 function App() {
   return (

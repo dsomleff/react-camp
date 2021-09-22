@@ -12,7 +12,7 @@
 - React-update-state-cycle trigger a chain reaction. If parent was changed, so React tries to re-render children as well.
 - `shouldComponentUpdate` - helps to figure out when Component should be re-rendered. If state remains the same, but  action was triggered somehow, React will not updates the DOM.
 - `componentWillUnMount` - if you want to do something once when component is going to unmounted.
-- `props` - property that specified in Component tag `<Component propName="propValue"/>`. Exist for both types of Component.
+- `props` - property that specified in Component tag `<Component propName="propValue"/>`. Exist for both types of Component. If `props` was changed Component will re-render itself.
 - `children` of props - any info located between Component's tags `<Component>Children Props</Component>`
 - `Class Methods` - A good rule of thumb is this: Use arrow functions on any class methods you define and aren't part of React (i.e. `render()`, `componentDidMount()`). Because of Logical Scope and `this` bounding.
 
@@ -41,3 +41,12 @@
 - `history` has a `push` method that allow us to specify on which route (url) we want to sent user. `<button onClick={() => props.history.push('/topics')}>Topics </button>`.
 - `location` tell us where are we currently in our App. `location.pathname` provide exact full url.
 - `Link` another Component that allow us to create a link. Use `<Link to=your-path />Path Name</Link>`. It also helps us with nested routes. `<Link to={`${props.match.url}/:dynamicData`}>` and no matter how we are change our url, this `Link` will be always works.
+
+## Redux
+- All Components in our app have access to state, like a global storage (single source of truth). So we avoid the problem, when we pass state from parent to nested children, even if middle child didn't use the state. Instead, we have Redux (global state storage) and any Component can use state if it need to.
+- Redux state never changed. It's read only and after each action we create a new state.
+- Redux workflow contains `actions`, `reducers`, `store`, `dispatcher`.
+- Redux use flux pattern: action -> dispatcher -> store -> view. One way flow.
+- Component trigger `actions` -> actions update the state (create a new one based on existed state) -> this pieces of state are called `reducers` -> reducer pass state as a `props` to Component.
+- `Reducers` are represent state. We have main reducer (Redux "Store" where global state lives) and we able to create as many reducers as we need, each of them will contain specific piece of state, that need specific Component.
+- Every Reducer it's a function, returns new object with a new state and accept 2 arguments: `state` and `action`. `state` it's a previous (current) state, before action is going to update it. Reducer contains switch statement, that reacts on `action` type. Depends on the type of action, it returns appropriate state to Component.
