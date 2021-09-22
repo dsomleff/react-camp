@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import './header.styles.scss';
+import CartIcon from "../cart-icon/CartIcon";
 
 const Header = () => (
   <div className="header">
@@ -20,19 +21,7 @@ const Header = () => (
         COLLECTIONS
       </Link>
 
-      <Link
-        className="option"
-        to="/contact"
-      >
-        CONTACT
-      </Link>
-
-      <Link
-        className="option"
-        to="/sign-in"
-      >
-        SIGN IN
-      </Link>
+      <CartIcon />
     </div>
   </div>
 );

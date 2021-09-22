@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 
-export default combineReducers({
-  nameOfReducer: nameOfReducer
-});
+// export default combineReducers({
+
+// });
