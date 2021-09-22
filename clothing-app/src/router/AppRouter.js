@@ -5,7 +5,7 @@ import Header from '../components/header/Header';
 import CollectionsPage from '../components/collections/CollectionsPage';
 import AuthPage from '../components/auth/AuthPage';
 
-function App() {
+function AppRouter() {
   return (
     <div>
       <BrowserRouter>
@@ -21,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRouter;

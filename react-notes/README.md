@@ -50,3 +50,6 @@
 - Component trigger `actions` -> actions update the state (create a new one based on existed state) -> this pieces of state are called `reducers` -> reducer pass state as a `props` to Component.
 - `Reducers` are represent state. We have main reducer (Redux "Store" where global state lives) and we able to create as many reducers as we need, each of them will contain specific piece of state, that need specific Component.
 - Every Reducer it's a function, returns new object with a new state and accept 2 arguments: `state` and `action`. `state` it's a previous (current) state, before action is going to update it. Reducer contains switch statement, that reacts on `action` type. Depends on the type of action, it returns appropriate state to Component.
+- `Provider` is Component from 'react-redux' library. It's a main parent of all our components. That's how all `Provider` children get access to Redux Store.
+- `combineReducers` is a redux function, that we use to store all our reducers and one place.
+- `createStore` is a redux function, that accept as an argument `combineReducers` to create a store. Then `createStore` should be passed to `Provider` to get access to store for app.
