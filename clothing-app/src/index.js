@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import AppRouter from './router/AppRouter';
-// import store from './redux/store/configureStore';
+import store from './redux/configureStore';
 import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-
+    <Provider store={store}>
       <AppRouter />
-
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// <Provider store={store}>
-// </Provider>
