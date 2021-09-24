@@ -7,4 +7,6 @@
     Course Goal
   </label>
 ```
-- `styled components` package allow us to create a components with have certain styles attached to them. Like in Vue. Check Button Component in this project for example.
+- `styled components` package allow us to create a components with have certain styles attached to them. Like in Vue. Check Button or CourseInput Component in this project for example.
+- Styled Components forward all props you set on them to the underline Components.
+- Styled Components can accept props and by value of this props manipulate CSS.
