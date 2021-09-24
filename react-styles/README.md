@@ -11,3 +11,4 @@
 - Styled Components forward all props you set on them to the underline Components.
 - Styled Components can accept props and by value of this props manipulate CSS.
 - Media query also supports by `styled components`. Check Button Components in this project for example.
+- `CSS Modules` build in React feature. If you import your css file into component as a `styles`, React create unique versions of  css classes for this component. Check Button Components in this project for example.
