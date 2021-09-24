@@ -57,3 +57,55 @@
 - `mapStateToProps` standard name for function that accept state (top level Reducer, our Store) as an argument and return new object.
 - `mapDispatchToProps` is a redux function, that accept `dispatch` as an argument and return an object.
 - `dispatch` is passing `action` to a `reducer`.
+
+## React Hooks
+- Hooks can be called only inside of FBC, because in CBC we already got access to state. Hook cannot be called from nested function, that exist in FBC.
+- `useState` - always accept as an argument initial state (`props.nameOfTheProp`) and returns this state and a function that update the value of the state.
+```js
+const [title, setTitle] = useState(props.title); // grab the value from props
+
+const clickHandler = () => {
+  setTitle('Updated!'); // use the setTitle to update props
+}
+
+return (
+  <>
+    {title} // use changed value
+  </>
+);
+```
+- You can use `useState` as many time as you want in one FBC. And all this states will be completely separated from each other.
+- You can use `use State` as a single state, for this you need pass inside `useState` an object. Inside this object you can group your states. If you state update depends on previous State, use arrow function. Check `State vs Props` section for more info.
+```js
+// Multiple states approach
+const [title, setTitle] = useState(props.title);
+const [body, setBody] = useState(props.body);
+
+const titleChangeHandler = (event) => {
+  setTitle(event.target.value);
+};
+
+const bodyChangeHandler = (event) => {
+  setBody(event.target.value);
+};
+
+// Single state approach
+const [userInput, setUserInput] = useState({
+  title: '',
+  body: ''
+});
+
+const titleChangeHandler = (event) => {
+  setUserInput((prevState) => {
+    return {
+      ...userInput,
+      title: event.target.value
+    };
+  });
+};
+
+
+```
+
+## Other Concepts
+- `Lift State Up` technique allow us to pass data from child to parent.
