@@ -103,8 +103,6 @@ const titleChangeHandler = (event) => {
     };
   });
 };
-
-
 ```
 
 ## Other Concepts
