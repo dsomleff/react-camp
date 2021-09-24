@@ -7,4 +7,4 @@
     Course Goal
   </label>
 ```
--
+- `styled components` package allow us to create a components with have certain styles attached to them. Like in Vue. Check Button Component in this project for example.
