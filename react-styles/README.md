@@ -10,3 +10,4 @@
 - `styled components` package allow us to create a components with have certain styles attached to them. Like in Vue. Check Button or CourseInput Component in this project for example.
 - Styled Components forward all props you set on them to the underline Components.
 - Styled Components can accept props and by value of this props manipulate CSS.
+- Media query also supports by `styled components`. Check Button Components in this project for example.
