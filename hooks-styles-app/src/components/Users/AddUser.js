@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
+import ErrorModal from "../UI/ErrorModal";
 import styles from './AddUsers.module.css';
 
 const AddUser = props => {
@@ -27,15 +28,19 @@ const AddUser = props => {
   };
 
   return (
-    <Card className={styles.input}>
-      <form onSubmit={addUser}>
-        <label htmlFor="username">User Name</label>
-        <input value={name} onChange={handleNameInput} />
-        <label htmlFor="email">Email User</label>
-        <input value={email} onChange={handleEmailInput} />
-        <Button type="submit">Add</Button>
-      </form>
-    </Card>
+    <>
+      <Card className={styles.input}>
+        <form onSubmit={addUser}>
+          <label htmlFor="username">User Name</label>
+          <input value={name} onChange={handleNameInput} />
+          <label htmlFor="email">Email User</label>
+          <input value={email} onChange={handleEmailInput} />
+          <Button type="submit">Add</Button>
+        </form>
+      </Card>
+
+      <ErrorModal title="Error" message="Hello" />
+    </>
   )
 };
 
