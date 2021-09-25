@@ -13,7 +13,7 @@
 - `shouldComponentUpdate` - helps to figure out when Component should be re-rendered. If state remains the same, but  action was triggered somehow, React will not updates the DOM.
 - `componentWillUnMount` - if you want to do something once when component is going to unmounted.
 - `props` - property that specified in Component tag `<Component propName="propValue"/>`. Exist for both types of Component. If `props` was changed Component will re-render itself.
-- `children` of props - any info located between Component's tags `<Component>Children Props</Component>`
+- `children` of props - populate any info located between Component's tags `<Component>props.children</Component>`
 - `Class Methods` - A good rule of thumb is this: Use arrow functions on any class methods you define and aren't part of React (i.e. `render()`, `componentDidMount()`). Because of Logical Scope and `this` bounding.
 
 ### Functional Based Components
