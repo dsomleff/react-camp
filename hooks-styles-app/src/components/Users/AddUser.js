@@ -7,6 +7,7 @@ import styles from './AddUsers.module.css';
 const AddUser = props => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [error, setError] = useState();
 
   const handleNameInput = e => {
     setName(e.target.value);
@@ -16,9 +17,17 @@ const AddUser = props => {
     setEmail(e.target.value);
   };
 
+  const handleError = () => {
+    setError(null);
+  }
+
   const addUser = (e) => {
     e.preventDefault();
     if (name.trim().length === 0 || email.trim().length === 0) {
+      setError({
+        title: 'Invalid input',
+        message: ' Please enter your values'
+      });
       return;
     }
 
@@ -39,7 +48,14 @@ const AddUser = props => {
         </form>
       </Card>
 
-      <ErrorModal title="Error" message="Hello" />
+      {
+        error &&
+        (<ErrorModal
+          title={error.title}
+          message={error.message}
+          handleError={handleError}
+        />)
+      }
     </>
   )
 };

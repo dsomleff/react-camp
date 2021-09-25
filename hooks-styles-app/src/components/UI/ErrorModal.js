@@ -1,11 +1,15 @@
 import Card from "./Card";
 import Button from "./Button";
-import styles from './ErrorModale.module.css';
+import styles from './ErrorModal.module.css';
 
 const ErrorModal = props => {
   return (
     <>
-      <div className={styles.backdrop} />
+      <div
+        className={styles.backdrop}
+        onClick={props.handleError}
+      />
+
       <Card className={styles.modal}>
         <header className={styles.header}>
           <h2>
@@ -20,7 +24,7 @@ const ErrorModal = props => {
         </div>
 
         <footer className={styles.actions}>
-          <Button>Hide</Button>
+          <Button onClick={props.handleError}>Hide</Button>
         </footer>
       </Card>
     </>
