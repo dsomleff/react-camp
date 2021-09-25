@@ -107,3 +107,4 @@ const titleChangeHandler = (event) => {
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
+- All Components must return one "root" element. That element may contains as many children as you like and can be whatever you like `<div>, <form>`, etc. If your "root" element just a `<div>` use `<>` instead, it helps with unnecessary div in DOM (div soup).
