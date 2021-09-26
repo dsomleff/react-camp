@@ -104,8 +104,9 @@ const titleChangeHandler = (event) => {
   });
 };
 ```
+- `ref` allow us to get access to other DOM elements and work with them. `useRef()` allow us to get values from input without using state and even update initial state. Ref good if you only want to read a value and you never plan on changing anything. Check useRef() commit for detail.
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
 - All Components must return one "root" element. That element may contains as many children as you like and can be whatever you like `<div>, <form>`, etc. If your "root" element just a `<div>` use `<>` instead, it helps with unnecessary div pack in DOM (div soup). Also you can use `<React.Fragment>` it's do the same, it's an empty wrapper component, that doesn't render to the DOM.
-- `Portals` allow us to put HTML elements whatever we like, structure our DOM for more clear semantic structure. Portal need 2 things: You need a place you wanna render the Component to (usually it's a `<div id="some-name"/> `) and then you need to let the Component know that it should have a portal to that place. Check Portals commit for example.
+- `Portals` allow us to put HTML elements whatever we like, structure our DOM for more clear semantic structure. Portal need 2 things: You need a place you wanna render the Component to (usually it's a `<div id="some-name"/> `) and then you need to let the Component know that it should have a portal to that place. Check Portals commit for detail.

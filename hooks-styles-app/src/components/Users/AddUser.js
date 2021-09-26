@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
 import styles from './AddUsers.module.css';
 
 const AddUser = props => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const nameInputRef = useRef();
+  const emailInputRef = useRef();
+
+  // const [name, setName] = useState('');
+  // const [email, setEmail] = useState('');
   const [error, setError] = useState();
 
-  const handleNameInput = e => {
-    setName(e.target.value);
-  };
+  // const handleNameInput = e => {
+  //   setName(e.target.value);
+  // };
 
-  const handleEmailInput = e => {
-    setEmail(e.target.value);
-  };
+  // const handleEmailInput = e => {
+  //   setEmail(e.target.value);
+  // };
 
   const handleError = () => {
     setError(null);
@@ -23,7 +26,9 @@ const AddUser = props => {
 
   const addUser = (e) => {
     e.preventDefault();
-    if (name.trim().length === 0 || email.trim().length === 0) {
+    const enteredName = nameInputRef.current.value;
+    const enteredEmail = emailInputRef.current.value;
+    if (enteredName.trim().length === 0 || enteredEmail.trim().length === 0) {
       setError({
         title: 'Invalid input',
         message: ' Please enter your values'
@@ -31,9 +36,11 @@ const AddUser = props => {
       return;
     }
 
-    props.onAddUser(name, email);
-    setName('');
-    setEmail('');
+    props.onAddUser(enteredName, enteredEmail);
+    nameInputRef.current.value = '';
+    emailInputRef.current.value = '';
+    // setName('');
+    // setEmail('');
   };
 
   return (
@@ -41,9 +48,19 @@ const AddUser = props => {
       <Card className={styles.input}>
         <form onSubmit={addUser}>
           <label htmlFor="username">User Name</label>
-          <input value={name} onChange={handleNameInput} />
+          <input
+            // value={name}
+            // onChange={handleNameInput}
+            ref={nameInputRef}
+          />
+
           <label htmlFor="email">Email User</label>
-          <input value={email} onChange={handleEmailInput} />
+          <input
+            // value={email}
+            // onChange={handleEmailInput}
+            ref={emailInputRef}
+          />
+
           <Button type="submit">Add</Button>
         </form>
       </Card>
