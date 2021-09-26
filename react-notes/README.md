@@ -104,7 +104,7 @@ const titleChangeHandler = (event) => {
   });
 };
 ```
-- `ref` allow us to get access to other DOM elements and work with them. `useRef()` allow us to get values from input without using state and even update initial state. Ref good if you only want to read a value and you never plan on changing anything. Check useRef() commit for detail.
+- `ref` allow us to get access to other DOM elements and work with them. `useRef()` allow us to get values from input without using state and even update initial state. Ref good if you only want to read a value and you never plan on changing anything. We're talking about uncontrolled components if we access values with a ref. Why? Because they're internal state, so to value which is reflected in them is not controlled by React. Check useRef() commit for detail.
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
