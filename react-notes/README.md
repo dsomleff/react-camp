@@ -59,8 +59,8 @@
 - `dispatch` is passing `action` to a `reducer`.
 
 ## React Hooks
-- Hooks can be called only inside of FBC, because in CBC we already got access to state. Hook cannot be called from nested function, that exist in FBC.
-- `useState()` - always accept as an argument initial state (`props.nameOfTheProp`) and returns this state and a function that update the value of the state.
+- Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function, that exist in FBC.
+- `useState()` - always accept as an argument initial state (`props.nameOfTheProp`) and returns this state and a function that update the value of the state. State can be whatever you like, not only an object, but string, boolean, etc.
 ```js
 const [title, setTitle] = useState(props.title); // grab the value from props
 
@@ -106,11 +106,14 @@ const titleChangeHandler = (event) => {
 ```
 - `useState` is main state management tool. Great for independent pieces of data. Good if state updates are limited and easy.
 - `ref` allow us to get access to other DOM elements and work with them. `useRef()` allow us to get values from input without using state and even update initial state. Ref good if you only want to read a value and you never plan on changing anything. We're talking about uncontrolled components if we access values with a ref. Why? Because they're internal state, so to value which is reflected in them is not controlled by React. Check useRef() commit for detail.
-- `useEffect()` combine `componentDidMount, componentDidUpdate`. This hook accept 2 argument: function and array of dependencies.
+- `useEffect()` combine `componentDidMount, componentDidUpdate`. It's going to runs when Component firstly mount and after changes to Component state or props. Can be used multiple times in one Component. This hook accept 2 argument: function and array of dependencies.
 ```js
 useEffect(() => {...}, [dependencies]);
+// if dependencies array will be empty, useEffect will be called only once (component did mount) and never runs on updates.
 ```
-Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function. Exceptions: You DON'T need to add state updating functions: React guarantees that those functions never change. DON'T need to add "built-in" APIs or functions like `fetch()`, `localStorage` etc. You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered. You can also use Cleanup Function to reload useEffect. Check docs for more info.
+Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function, the things we care about, the things that we want to make
+sure when they change the effect runs. Exceptions: You DON'T need to add state updating functions: React guarantees that those functions never change. DON'T need to add "built-in" APIs or functions like `fetch()`, `localStorage` etc. You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered.
+- You can also use Cleanup Function to reload `useEffect` (`componentDidUnmount`). Check docs for more info.
 - `useReducer()` allow us manage more complex state.
 ```js
 const [state, dispatchFunc] = useReducer(reducerFunc, initialState, initFunc);
