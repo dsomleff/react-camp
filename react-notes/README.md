@@ -104,6 +104,7 @@ const titleChangeHandler = (event) => {
   });
 };
 ```
+- `useState` is main state management tool. Great for independent pieces of data. Good if state updates are limited and easy.
 - `ref` allow us to get access to other DOM elements and work with them. `useRef()` allow us to get values from input without using state and even update initial state. Ref good if you only want to read a value and you never plan on changing anything. We're talking about uncontrolled components if we access values with a ref. Why? Because they're internal state, so to value which is reflected in them is not controlled by React. Check useRef() commit for detail.
 - `useEffect()` combine `componentDidMount, componentDidUpdate`. This hook accept 2 argument: function and array of dependencies.
 ```js
@@ -119,6 +120,7 @@ const [state, dispatchFunc] = useReducer(reducerFunc, initialState, initFunc);
 // initialState - default state value
 // initFunc - a func to set initial state in case your initial state is a bit more complex, for example, the result of let's say HTTP requests.
 ```
+- `useReducer()` great if state logic and state updates are complex. If you have related pieces of data.
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
