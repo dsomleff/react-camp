@@ -60,7 +60,7 @@
 
 ## React Hooks
 - Hooks can be called only inside of FBC, because in CBC we already got access to state. Hook cannot be called from nested function, that exist in FBC.
-- `useState` - always accept as an argument initial state (`props.nameOfTheProp`) and returns this state and a function that update the value of the state.
+- `useState()` - always accept as an argument initial state (`props.nameOfTheProp`) and returns this state and a function that update the value of the state.
 ```js
 const [title, setTitle] = useState(props.title); // grab the value from props
 
@@ -109,7 +109,16 @@ const titleChangeHandler = (event) => {
 ```js
 useEffect(() => {...}, [dependencies]);
 ```
-Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function. Exceptions: You DON'T need to add state updating functions: React guarantees that those functions never change. DON'T need to add "built-in" APIs or functions like `fetch()`, `localStorage` etc. You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered.
+Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function. Exceptions: You DON'T need to add state updating functions: React guarantees that those functions never change. DON'T need to add "built-in" APIs or functions like `fetch()`, `localStorage` etc. You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered. You can also use Cleanup Function to reload useEffect. Check docs for more info.
+- `useReducer()` allow us manage more complex state.
+```js
+const [state, dispatchFunc] = useReducer(reducerFunc, initialState, initFunc);
+// state - state snapshot used in component re-rendered cycle, like in useState.
+// dispatchFunc - can be used to trigger an update of the state (dispatch action).
+// reducerFunc - triggered automatically once action is dispatched (in dispatchFunc). It receives the last state snapshot and should return new, updated state. (prevState, action) => newState
+// initialState - default state value
+// initFunc - a func to set initial state in case your initial state is a bit more complex, for example, the result of let's say HTTP requests.
+```
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
