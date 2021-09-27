@@ -109,7 +109,7 @@ const titleChangeHandler = (event) => {
 ```js
 useEffect(() => {...}, [dependencies]);
 ```
-Function will be called AFTER every Component rerender ONLY IF dependencies changed.
+Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function. Exceptions: You DON'T need to add state updating functions: React guarantees that those functions never change. DON'T need to add "built-in" APIs or functions like `fetch()`, `localStorage` etc. You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered.
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
