@@ -131,7 +131,7 @@ const ContextObject = React.createContext({ initialState });
 ```
 ```html
 <!-- provide state for Components -->
-<ContextObject.Provider>
+<ContextObject.Provider value={initialState}>
   <ComponentThatNeedState>
   <ComponentThatNeedState>
 </ContextObject.Provider>
@@ -140,6 +140,7 @@ const ContextObject = React.createContext({ initialState });
 const contextValue = useContext(ContextObject); // listen state in Component that need it
 contextValue.initialState; // getting access to state
 ```
+- `React Context` as initial state accept any values for state, including functions that manage that state.
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
