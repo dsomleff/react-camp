@@ -141,6 +141,8 @@ const contextValue = useContext(ContextObject); // listen state in Component tha
 contextValue.initialState; // getting access to state
 ```
 - `React Context` as initial state accept any values for state, including functions that manage that state.
+- Good reason for using `Context` will be state that affects multiple components. So `props` for components configuration,  `context` for state management across components or possibly across the entire app.
+- `React Context` limitation: NOT optimized for high frequency changes (multiple times per second).
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
