@@ -124,6 +124,22 @@ const [state, dispatchFunc] = useReducer(reducerFunc, initialState, initFunc);
 // initFunc - a func to set initial state in case your initial state is a bit more complex, for example, the result of let's say HTTP requests.
 ```
 - `useReducer()` great if state logic and state updates are complex. If you have related pieces of data.
+- `React Context (contextAPI) or useContext()` is Component State Storage. By using it we can avoid passing props chain through component to component. It allows us to manage State, that we are able to directly change from any component in our App and directly pass it to any component in our App without building a prop chain.
+```js
+// ContextObject is a wrapper around Components that should received access to initialState.
+const ContextObject = React.createContext({ initialState });
+```
+```html
+<!-- provide state for Components -->
+<ContextObject.Provider>
+  <ComponentThatNeedState>
+  <ComponentThatNeedState>
+</ContextObject.Provider>
+```
+```js
+const contextValue = useContext(ContextObject); // listen state in Component that need it
+contextValue.initialState; // getting access to state
+```
 
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
