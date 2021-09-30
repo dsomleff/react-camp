@@ -59,7 +59,9 @@
 - `dispatch` is passing `action` to a `reducer`.
 
 ## React Hooks
-- Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function, that exist in FBC.
+- Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function (like another Hook or if statement), that exist in FBC.
+
+### useState()
 - `useState()` - always accept as an argument initial state (`props.nameOfTheProp`) and returns this state and a function that update the value of the state. State can be whatever you like, not only an object, but string, boolean, etc.
 ```js
 const [title, setTitle] = useState(props.title); // grab the value from props
@@ -105,39 +107,69 @@ const titleChangeHandler = (event) => {
 };
 ```
 - `useState` is main state management tool. Great for independent pieces of data. Good if state updates are limited and easy.
+
+### useRef()
 - `ref` allow us to get access to other DOM elements and work with them. `useRef()` allow us to get values from input without using state and even update initial state. Ref good if you only want to read a value and you never plan on changing anything. We're talking about uncontrolled components if we access values with a ref. Why? Because they're internal state, so to value which is reflected in them is not controlled by React. Check useRef() commit for detail.
+
+
+### useEffect()
 - `useEffect()` combine `componentDidMount, componentDidUpdate`. It's going to runs when Component firstly mount and after changes to Component state or props. Can be used multiple times in one Component. This hook accept 2 argument: function and array of dependencies.
 ```js
 useEffect(() => {...}, [dependencies]);
 // if dependencies array will be empty, useEffect will be called only once (component did mount) and never runs on updates.
 ```
-Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function, the things we care about, the things that we want to make
+- Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function, the things we care about, the things that we want to make
 sure when they change the effect runs. Exceptions: You DON'T need to add state updating functions: React guarantees that those functions never change. DON'T need to add "built-in" APIs or functions like `fetch()`, `localStorage` etc. You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered.
 - You can also use Cleanup Function to reload `useEffect` (`componentDidUnmount`). Check docs for more info.
-- `useReducer()` allow us manage more complex state.
+
+
+### useReducer()
+- `useReducer()` allow us manage more complex state. It's great if state logic and state updates are complex. If you have related pieces of data.
+- To use `useReducer()` we need create a Reducer itself.
 ```js
-const [state, dispatchFunc] = useReducer(reducerFunc, initialState, initFunc);
-// state - state snapshot used in component re-rendered cycle, like in useState.
-// dispatchFunc - can be used to trigger an update of the state (dispatch action).
-// reducerFunc - triggered automatically once action is dispatched (in dispatchFunc). It receives the last state snapshot and should return new, updated state. (prevState, action) => newState
-// initialState - default state value
-// initFunc - a func to set initial state in case your initial state is a bit more complex, for example, the result of let's say HTTP requests.
+const nameReducer = (prevState, action) => {
+  switch(action.type) {
+    case 'ACTION_TYPE':
+      return action.value;
+    default:
+      return state;
+  }
+}
+// state - is previous (existed) state
+// action - contains information about the action being performed.
+// nameReducer is reducerFunc with will be pass to useReducer as a 1st argument. It  return the new state based off of whatever action has been fired off.
 ```
-- `useReducer()` great if state logic and state updates are complex. If you have related pieces of data.
+```js
+const [state, dispatchFunc] = useReducer(nameReducer, initialState, initFunc);
+// state - state snapshot used in component re-rendered cycle, like in useState.
+// dispatchFunc - is going to dispatch an action that's going to run the reducer and manipulate the state as described in reducerFunc.
+// nameReducer - triggered automatically once action is dispatched (in dispatchFunc). It receives the last state snapshot and should return new, updated state. (prevState, action) => newState
+// initialState - default state value
+// initFunc - a func to set initial state in case your initial state is a bit more complex, for example, the result of let's say HTTP requests. Not required
+```
+- Next step we need to call  dispatchFunc. When it calls, it takes data(valueName: value) and it takes the type (ACTION_TYPE). It's going to pass that through our nameReducer.
+```js
+dispatchFunc({ type: 'ACTION_TYPE', valueName: value });
+```
+
+### React Context (contextAPI) and useContext()
 - `React Context (contextAPI) or useContext()` is Component State Storage. By using it we can avoid passing props chain through component to component. It allows us to manage State, that we are able to directly change from any component in our App and directly pass it to any component in our App without building a prop chain.
 ```js
-// ContextObject is a wrapper around Components that should received access to initialState.
-const ContextObject = React.createContext({ initialState });
+// ContextObject is a wrapper around Components that should received access to value that we like to share.
+const ContextObject = React.createContext({ value });
+// value is optional. We can provide our data through Provide value property.
 ```
 ```html
-<!-- provide state for Components -->
-<ContextObject.Provider value={initialState}>
+<!-- provide value for Components. value can be anything, here it's an object  -->
+<ContextObject.Provider value={{value}}>
+  <!-- may use value -->
   <ComponentThatNeedState>
+    <!-- may not -->
   <ComponentThatNeedState>
 </ContextObject.Provider>
 ```
 ```js
-const contextValue = useContext(ContextObject); // listen state in Component that need it
+const {contextValue} = useContext(ContextObject); // listen state in Component that need it
 contextValue.initialState; // getting access to state
 ```
 - `React Context` as initial state accept any values for state, including functions that manage that state.
