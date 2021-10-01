@@ -156,8 +156,8 @@ dispatchFunc({ type: 'ACTION_TYPE', valueName: value });
 - `React Context (contextAPI) or useContext()` is Component State Storage. By using it we can avoid passing props chain through component to component. It allows us to manage State, that we are able to directly change from any component in our App and directly pass it to any component in our App without building a prop chain.
 ```js
 // ContextObject is a wrapper around Components that should received access to value that we like to share.
-const ContextObject = React.createContext({ value });
 // value is optional. We can provide our data through Provide value property.
+const ContextObject = React.createContext({ value });
 ```
 ```html
 <!-- provide value for Components. value can be anything, here it's an object  -->

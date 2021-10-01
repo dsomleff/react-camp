@@ -5,4 +5,4 @@ Image was taken from [Carrefour Foodscapes](https://www.behance.net/gallery/1261
 
 ## React Hook Usage
 - State initialized in `App` by `useState()` and passed down to `Cart` and `Modal` FBC.
-- Create a `cart-context` and `CartProvider` to store data. Wrapping any FBC by `<CartProvider></CartProvider>` we granted FBS access to stored data.
+- Create a `cart-context` and `CartProvider` to store data. Wrapping any FBC by `<CartProvider></CartProvider>` we granted FBS access to stored data. Usage in `HeaderCartButton` FBC.
