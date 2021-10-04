@@ -1,22 +1,16 @@
 import styles from './MealItemForm.module.css';
 import Input from '../../UI/Input';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 const MealItemForm = props => {
   const mealAmount = useRef();
-  const [amountIsValid, setAmountIsValid] = useState(true);
 
   const addMeal = e => {
     e.preventDefault();
     const amount = mealAmount.current.value;
-    // const amountToNumber = +amount;
+    const amountToNumber = +amount;
 
-    if (amount.trim().length === 0) {
-      setAmountIsValid(false);
-      return;
-    }
-
-    props.onAddToCart(amount);
+    props.onAddToCart(amountToNumber);
   };
 
   return (
@@ -34,7 +28,6 @@ const MealItemForm = props => {
         }}
       />
       <button>Add</button>
-      {!amountIsValid && <p>Please choose a meal</p>}
     </form>
   );
 };

@@ -9,10 +9,8 @@ const MealItem = props => {
 
   const addToCart = amount => {
     addItem({
-      id: props.id,
-      name: props.name,
-      amount,
-      price: props.price
+      ...props,
+      amount
     });
   };
 

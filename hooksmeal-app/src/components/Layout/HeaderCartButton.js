@@ -5,6 +5,7 @@ import CartContext from '../../context/cart-context';
 
 const HeaderCartButton = props => {
   const { items } = useContext(CartContext);
+
   const countItems = items.reduce((previousValue, currentValue) => {
     return previousValue + currentValue.amount;
   }, 0);
@@ -14,7 +15,6 @@ const HeaderCartButton = props => {
       <span className={styles.icon}>
         <CartIcon />
       </span>
-
       <span>Your Cart</span>
 
       <span className={styles.badge}>
