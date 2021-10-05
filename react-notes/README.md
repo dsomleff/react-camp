@@ -4,7 +4,7 @@
 - Allow us to use `state` (js object with data with we like to provide for render inside our component). FBC do NOT have state. For this we use constructor with `this.state` property.
 - You NOT allowed to modify `state` without calling `setState()`.
 - Everything inside `{}` in JSX is JavaScript expression.
-- As soon as `state` changed/updated, React re-render component.
+- As soon as `state`, or `props`, or `context` changed/updated, React re-render component. React compare VirtualDOM with already rendered HTML, and if discrepancy exists, React re-render only changed data, not whole page. But, still React will call every FBS / CBC (because it's a functions, at the end of the day). To prevent this calls, check `Other Concepts` section for details.
 - When we render array of elements in JSX, for each element we need provide unique `key`, that React can distinguish them. So React, by using `key` re-render only updated element and do not touch others.
 - `LifeCycle Methods` - methods that get called at different stages of when our components get rendered. Exist only in CBC.
 - `componentDidMount()` - calls when React render component on the page for a first time and default state was initiate. It's a React.Component method (`Life Cycle Method`).
@@ -24,7 +24,7 @@
 - State data can be pass as a parameter into Component and Component receive it as a prop(s).
 - State lives in a one place and can be passed multiple times  as a props, into Components.
 - if we want to do something with `state` right after we set it, we need to use callback inside `setState` function, like `this.setState({ stateField: value }, () => {})`
-- `this.setState()` is asynchronous function. Any time when `state` is updated, there is the chance it wound't be accurate, because of script-run-time delay. So we need use `setState((prevState) => {stateParams: prevState.newData})` which guarantee us correct state update. Same true for `prevProps`.
+- `this.setState()` is asynchronous function. Any time when `state` is updated, there is the chance it wound't be accurate, because of script-run-time delay. React put state changes in a queue (Scheduled State Change). So, if we update our state based on previous state snapshot, we need use `setState((prevState) => {stateParams: prevState.newData})` which guarantee us correct state update and order of this updates.
 - If we need to use `state` right after update, pass arrow function as second parameter into `this.setState()`.
 - `Props` possible to pass into CBC. to call them and get access via `constructor(props)` and `super(props)`. Now inside `this.state` we have access to `this.props`.
 - Sometimes `state` may be declare without `constructor` in CBC.
@@ -176,7 +176,26 @@ contextValue.initialState; // getting access to state
 - Good reason for using `Context` will be state that affects multiple components. So `props` for components configuration,  `context` for state management across components or possibly across the entire app.
 - `React Context` limitation: NOT optimized for high frequency changes (multiple times per second).
 
+### useCallback()
+ - Use Callback is a hook that allows us to basically store a function across component executions. So it allows us to tell React that we wanna save a function and that this function should not be recreated with every execution.
+```js
+const yourFunc = useCallback(() => {
+  setState(logic);
+}, []);
+// 1st argument it's a function for state change logic.
+// second is array of anything what you use inside 1st arg func, like in useEffect.
+```
+- Here we use the `useCallback` and pass our function as a first argument to `useCallback` and `useCallback` then returns that stored function and when the app function (parent component that sent `yourFunc` as a prop to it's children) reruns `useCallback` will look for that stored function which React stored for us and reuse that same function object. In short `useCallback` store your functions and memory (make a snapshot to compare), and based on this React decides run this function again or not.
+
+### useMemo()
+- `useMemo` allows you to memoize / store, any kind of data, just like `useCallback` does it for functions.
+
 ## Other Concepts
 - `Lift State Up` technique allow us to pass data from child to parent.
 - All Components must return one "root" element. That element may contains as many children as you like and can be whatever you like `<div>, <form>`, etc. If your "root" element just a `<div>` use `<>` instead, it helps with unnecessary div pack in DOM (div soup). Also you can use `<React.Fragment>` it's do the same, it's an empty wrapper component, that doesn't render to the DOM.
 - `Portals` allow us to put HTML elements whatever we like, structure our DOM for more clear semantic structure. Portal need 2 things: You need a place you wanna render the Component to (usually it's a `<div id="some-name"/> `) and then you need to let the Component know that it should have a portal to that place. Check Portals commit for detail.
+- Even if children component do not changed, every time when parent component re-evaluated, React will be re-run (call) all child components as well (it's a functions, and that how code compiling works). To prevent this in FBC:
+```js
+export default React.memo(YourChildComponentName);
+```
+- React will check if props, state, context of this child element were changed. If not, React will not call this Component. It will work for all nested YourChildComponentName component children as well. But it comes with the cost. Now instead of compare VirtualDOM with rendered HTML, React will compare existed props snapshot with current props. Instead of `memo()` you can use `useCallback` hook.
