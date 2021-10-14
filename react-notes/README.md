@@ -1,8 +1,10 @@
 # React Basics
 
 ## Class Based (CBC) and Functional Based Component (FBC)
-- Allow us to use `state` (js object with data with we like to provide for render inside our component). FBC do NOT have state. For this we use constructor with `this.state` property.
+- `state`  - js object with data with we like to provide for render inside our component. For this we use constructor with `this.state` property in CBS.
+-  FBC do NOT has state in the past  (now we have Hooks, that allow us manage state in FBC).
 - You NOT allowed to modify `state` without calling `setState()`.
+- In CBC `state` ALWAYS an object. You can nested inside of `this.state` object another objects or arrays, but it always should be inside one object scope.
 - Everything inside `{}` in JSX is JavaScript expression.
 - As soon as `state`, or `props`, or `context` changed/updated, React re-render component. React compare VirtualDOM with already rendered HTML, and if discrepancy exists, React re-render only changed data, not whole page. But, still React will call every FBS / CBC (because it's a functions, at the end of the day). To prevent this calls, check `Other Concepts` section for details.
 - When we render array of elements in JSX, for each element we need provide unique `key`, that React can distinguish them. So React, by using `key` re-render only updated element and do not touch others.
@@ -15,10 +17,17 @@
 - `props` - property that specified in Component tag `<Component propName="propValue"/>`. Exist for both types of Component. If `props` was changed Component will re-render itself.
 - `children` of props - populate any info located between Component's tags `<Component>props.children</Component>`
 - `Class Methods` - A good rule of thumb is this: Use arrow functions on any class methods you define and aren't part of React (i.e. `render()`, `componentDidMount()`). Because of Logical Scope and `this` bounding.
+- One CBC can be connect to only one context. For that create a static property ana assign your context
+```js
+static contextType = YourContext;
+// and get access through this.context.yourData;
+```
+- `componentDidCatch`  will be triggered whenever one of the child components throws an error. Has no equivalent in FBC. We create a CBC for ErrorHandler (EHC) and by wrapping this EHC around Components, which may produce an error during their lifetime. For this, inside EHC in `render()` we should always return `this.props.children `.
+
 
 ### Functional Based Components
 - Used when we need just render some data (from props) to basic html.
-- NO access to `state` or `LifeCycle Methods`.
+- Before Hooks were introduced, NO access to `state` or `LifeCycle Methods`.
 
 ## State vs Props
 - State data can be pass as a parameter into Component and Component receive it as a prop(s).
@@ -60,7 +69,7 @@
 
 ## React Hooks
 - Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function (like another Hook or if statement), that exist in FBC.
-
+- CBC can NOT use Hooks.
 ### useState()
 - `useState()` - always accept as an argument initial state (`props.nameOfTheProp`) and returns this state and a function that update the value of the state. State can be whatever you like, not only an object, but string, boolean, etc.
 ```js
