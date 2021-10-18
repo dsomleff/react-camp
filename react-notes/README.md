@@ -22,7 +22,7 @@
 static contextType = YourContext;
 // and get access through this.context.yourData;
 ```
-- `componentDidCatch`  will be triggered whenever one of the child components throws an error. Has no equivalent in FBC. We create a CBC for ErrorHandler (EHC) and by wrapping this EHC around Components, which may produce an error during their lifetime. For this, inside EHC in `render()` we should always return `this.props.children `.
+- `componentDidCatch`  will be triggered whenever one of the child components throws an error. Has no equivalent in FBC. We create a CBC for ErrorHandler Component (EHC or Error Boundaries ) and by wrapping this EHC around Components, which may produce an error during their lifetime. For this, inside EHC in `render()` we should always return `this.props.children `.
 
 
 ### Functional Based Components
@@ -195,6 +195,7 @@ const yourFunc = useCallback(() => {
 // second is array of anything what you use inside 1st arg func, like in useEffect.
 ```
 - Here we use the `useCallback` and pass our function as a first argument to `useCallback` and `useCallback` then returns that stored function and when the app function (parent component that sent `yourFunc` as a prop to it's children) reruns `useCallback` will look for that stored function which React stored for us and reuse that same function object. In short `useCallback` store your functions and memory (make a snapshot to compare), and based on this React decides run this function again or not.
+- `useCallback` often use to wrap `useEffect` hook, to avoid infinite loop.
 
 ### useMemo()
 - `useMemo` allows you to memoize / store, any kind of data, just like `useCallback` does it for functions.
@@ -208,3 +209,9 @@ const yourFunc = useCallback(() => {
 export default React.memo(YourChildComponentName);
 ```
 - React will check if props, state, context of this child element were changed. If not, React will not call this Component. It will work for all nested YourChildComponentName component children as well. But it comes with the cost. Now instead of compare VirtualDOM with rendered HTML, React will compare existed props snapshot with current props. Instead of `memo()` you can use `useCallback` hook.
+
+### custom Hooks (cH)
+- `cH` it's a function (not a Component), that contains stateful logic. It's allow outsource logic into reusable function. Using React Hooks or another cH is allowed.
+- Every `cH` name should start with `use`. That's convention and React will be inform that this function is `cH`. All `cH` may be stored in `hooks` folder, inside the app.
+- `state` created in `cH` will be bound to Component, in which `cH` was called. If we use `cH` in a multiple Components, every Component will receive it's own state. We share ONLY logic, NOT state.
+- `cH` as function should return something, and it can be any type you want (array, number, etc).
