@@ -7,6 +7,13 @@
 
 .MealsLoading {
   text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.MealsError {
+  text-align: center;
+  font-size: 2rem;
   color: white;
 }
 
