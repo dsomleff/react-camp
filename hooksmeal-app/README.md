@@ -9,3 +9,4 @@ Image was taken from [Carrefour Foodscapes](https://www.behance.net/gallery/1261
 - Create a `CartReducer` to manage logic for adding food to the cart.
 - `useEffect` inside `HeaderCartButton`.
 - Move "Meals" Data to Backend (Firebase) and fetch them via http.
+- Add '...Loading' message when fetch the data.
