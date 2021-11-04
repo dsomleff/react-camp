@@ -1,9 +1,33 @@
+import { useEffect, useState } from 'react';
 import styles from './AvailableMeals.module.css';
-import meals from './dummy-meals';
 import Card from '../UI/Card';
 import MealItem from './MealItem/MealItem';
+// import meals from './dummy-meals'; // before moving meals to Firebase.
 
 const AvailableMeals = () => {
+  const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await fetch('https://hooks-meal-app-default-rtdb.firebaseio.com/meals.json');
+      const data = await response.json();
+      const loadedMeals = [];
+
+      for (const key in data) {
+        loadedMeals.push({
+          id: key,
+          name: data[key].name,
+          description: data[key].description,
+          price: data[key].price
+        });
+      }
+
+      setMeals(loadedMeals);
+    };
+
+    fetchMeals();
+  }, []);
+
   const mealsList = meals.map(meal => (
     <MealItem
       id={meal.id}

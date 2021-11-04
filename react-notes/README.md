@@ -32,9 +32,8 @@ static contextType = YourContext;
 ## State vs Props
 - State data can be pass as a parameter into Component and Component receive it as a prop(s).
 - State lives in a one place and can be passed multiple times  as a props, into Components.
-- if we want to do something with `state` right after we set it, we need to use callback inside `setState` function, like `this.setState({ stateField: value }, () => {})`
+- if we want to do something with `state` right after we set/update it, we need to use callback inside `setState` function, like `this.setState({ stateField: value }, () => {})`
 - `this.setState()` is asynchronous function. Any time when `state` is updated, there is the chance it wound't be accurate, because of script-run-time delay. React put state changes in a queue (Scheduled State Change). So, if we update our state based on previous state snapshot, we need use `setState((prevState) => {stateParams: prevState.newData})` which guarantee us correct state update and order of this updates.
-- If we need to use `state` right after update, pass arrow function as second parameter into `this.setState()`.
 - `Props` possible to pass into CBC. to call them and get access via `constructor(props)` and `super(props)`. Now inside `this.state` we have access to `this.props`.
 - Sometimes `state` may be declare without `constructor` in CBC.
 
@@ -124,11 +123,31 @@ const titleChangeHandler = (event) => {
 ### useEffect()
 - `useEffect()` combine `componentDidMount, componentDidUpdate`. It's going to runs when Component firstly mount and after changes to Component state or props. Can be used multiple times in one Component. This hook accept 2 argument: function and array of dependencies.
 ```js
-useEffect(() => {...}, [dependencies]);
-// if dependencies array will be empty, useEffect will be called only once (component did mount) and never runs on updates.
+function MyComponent() {
+  useEffect(() => {
+    // Runs after EVERY rendering
+  });
+}
 ```
-- Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function, the things we care about, the things that we want to make
-sure when they change the effect runs. Exceptions: You DON'T need to add state updating functions: React guarantees that those functions never change. DON'T need to add "built-in" APIs or functions like `fetch()`, `localStorage` etc. You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered.
+
+```js
+function MyComponent() {
+  useEffect(() => {
+    // Runs ONCE after initial rendering
+  }, []);
+}
+```
+
+```js
+function MyComponent({ prop }) {
+  const [state, setState] = useState('');
+  useEffect(() => {
+    // Runs ONCE after initial rendering
+    // and after every rendering ONLY IF `prop` or `state` changes
+  }, [prop, state]);
+}
+```
+- Function will be called AFTER every Component rerender ONLY IF dependencies changed. You should add to [dependencies] "everything" that using inside effect function, the things that we want to make sure when they change the effect runs. Exceptions: You DON'T need to add state updating functions: React guarantees that those functions never change. DON'T need to add "built-in" APIs or functions like `fetch()`, `localStorage` etc. You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered.
 - You can also use Cleanup Function to reload `useEffect` (`componentDidUnmount`). Check docs for more info.
 
 

@@ -8,3 +8,4 @@ Image was taken from [Carrefour Foodscapes](https://www.behance.net/gallery/1261
 - Create a `cart-context` and `CartProvider` to store data. Wrapping any FBC by `<CartProvider></CartProvider>` we granted FBS access to stored data. Usage in `HeaderCartButton` FBC.
 - Create a `CartReducer` to manage logic for adding food to the cart.
 - `useEffect` inside `HeaderCartButton`.
+- Move "Meals" Data to Backend (Firebase) and fetch them via http.
