@@ -22,6 +22,16 @@ const Cart = props => {
 
   const orderHandler = () => setIsCheckout(true);
 
+  const submitOrderHandler = (userData) => {
+    fetch('https://hooks-meal-app-default-rtdb.firebaseio.com/orders.json', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: userData,
+        orderedItems: cartContext.items
+      })
+    });
+  };
+
   // HTML partials Section
   const cartItems = (
     <ul className={styles['cart-items']}>
@@ -57,7 +67,14 @@ const Cart = props => {
         <span>{totalAmount}</span>
       </div>
 
-      {isCheckout && <Checkout onCancel={props.onHideCart} />}
+      {
+        isCheckout && (
+          <Checkout
+            onCancel={props.onHideCart}
+            onSubmit={submitOrderHandler}
+          />
+        )
+      }
 
       {!isCheckout && modalActions}
     </Modal>

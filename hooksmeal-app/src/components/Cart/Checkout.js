@@ -42,6 +42,13 @@ const Checkout = (props) => {
     if (!formIsValid) {
       return;
     }
+
+    props.onSubmit({
+      name: nameValue,
+      street: streetValue,
+      postalCode: postalCodeValue,
+      city: cityValue
+    });
   };
 
   // css
@@ -50,6 +57,7 @@ const Checkout = (props) => {
   const postalCodeControlStyles = `${styles.control} ${validation.postalCode ? '' : styles.invalid}`;
   const cityControlStyles = `${styles.control} ${validation.city ? '' : styles.invalid}`;
 
+  // HTML partials Section
   return (
     <form className={styles.form} onSubmit={submitHandler}>
       <div className={nameControlStyles}>
