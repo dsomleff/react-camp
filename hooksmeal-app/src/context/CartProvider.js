@@ -19,11 +19,16 @@ const CartProvider = props => {
     dispatchCart({ type: 'REMOVE_ITEM', id });
   };
 
+  const clearCart = () => {
+    dispatchCart({ type: 'CLEAR' });
+  };
+
   const cartContextValues = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem,
-    removeItem
+    removeItem,
+    clearCart
   };
 
   return (
