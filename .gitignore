@@ -2,6 +2,7 @@
 /indecision-app/node_modules
 /boilerplate-v1/node_modules
 /router-app/node_modules
+/redux-camp/node_modules
 
 /expensify-app/node_modules
 /expensify-app/src/tests/components/__snapshots__

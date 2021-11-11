@@ -13,3 +13,4 @@ Image was taken from [Carrefour Foodscapes](https://www.behance.net/gallery/1261
 - Add `Checkout` component with a form. We display this form with some conditions.
 - Add `validation.js` helper for simple rules and some basic validation logic into `Checkout.js`.
 - In `Cart.js` create a handler for sending POST request to DB.
+- Add simple User Feedback with Context and Reducer.
