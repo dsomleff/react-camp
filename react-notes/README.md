@@ -58,7 +58,7 @@ static contextType = YourContext;
 - Component dispatch `actions` -> actions type forwarded to `Reducer` -> `Reducer` function that mutates (change) Store Data in Global Data (State) Store -> Global Store sent new data to Component by subscription.
 - `Reducers` are manipulate state. We able to create as many reducers as we need, each of them will contain specific piece of state, that need specific Component. When Redux contained code will be run for a 1st time - default value (state) from Reducer will be return. No side effects inside `Reducers`, it's a "pure" function.
 - Every Reducer it's a function, returns new object with a new state and accept 2 arguments: `state` and `action`. `state` it's a previous (current) state, before action is going to update it. Reducer contains switch statement, that reacts on `action` type. Depends on the type of action, it returns appropriate state to Component.
-- `Provider` is Component from 'react-redux' library. It's a main parent of all our components. That's how all `Provider` children get access to Redux Store.
+- `Provider` is Component from 'react-redux' library. It's a main parent of all Components that need Store Data. That's how all `Provider` children get access to Redux Store.
 - `combineReducers` is a redux function, that we use to store all our reducers and one place.
 - `createStore` is a redux function, that accept as an argument `combineReducers` to create a store. Then `createStore` should be passed to `Provider` to get access to store for app.
 - `connect` is a redux function and let us modify our Component and have access to Redux. Accept as an argument a function (`mapStateToProps`) that allow us to access the Reducer and Component name itself. `connect()(ComponentName)`.

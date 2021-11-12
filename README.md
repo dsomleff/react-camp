@@ -1,7 +1,7 @@
 # React Camp
 
 ## Spec
-All ideas, tasks and some solutions was created during the watching ["The Complete React Developer Course"](https://www.udemy.com/course/react-2nd-edition/) by [Andrew Mead](https://mead.io) and ["React - The Complete Guide (incl Hooks, React Router, Redux)"](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) by [Academind by Maximilian Schwarzmüller, Maximilian Schwarzmüller](https://academind.com).
+All ideas, tasks and some solutions was created during the watching ["The Complete React Developer Course"](https://www.udemy.com/course/react-2nd-edition/) by [Andrew Mead](https://mead.io) and ["React - The Complete Guide (incl Hooks, React Router, Redux)"](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) by [Maximilian Schwarzmüller](https://academind.com).
 
 Summary Notes may be found in `react-notes/README.md`.
 
