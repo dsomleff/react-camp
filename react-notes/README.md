@@ -61,10 +61,12 @@ static contextType = YourContext;
 - `Provider` is Component from 'react-redux' library. It's a main parent of all Components that need Store Data. That's how all `Provider` children get access to Redux Store.
 - `combineReducers` is a redux function, that we use to store all our reducers and one place.
 - `createStore` is a redux function, that accept as an argument `combineReducers` to create a store. Then `createStore` should be passed to `Provider` to get access to store for app.
-- `connect` is a redux function and let us modify our Component and have access to Redux. Accept as an argument a function (`mapStateToProps`) that allow us to access the Reducer and Component name itself. `connect()(ComponentName)`.
+- `connect` is a redux function and let us modify CBC and have access to Redux. Accept as an argument a function (`mapStateToProps`) that allow us to access the Reducer and Component name itself. `connect()(ComponentName)`.
 - `mapStateToProps` standard name for function that accept state (top level Reducer, our Store) as an argument and return new object.
 - `mapDispatchToProps` is a redux function, that accept `dispatch` as an argument and return an object.
 - `dispatch` is passing `action` to a `reducer`.
+- `useStore` custom hook from react-redux, which gives direct access to the store (whole State), from FBC. Do  not recommended for often usage.
+- `useSelector` custom hook from react-redux. It's convenient then `useStore`, because that allows select a part of the State from FBC. Basically replacement for `mapStateToProps` argument to `connect`. Accept a function that specified what piece of data need to be fetched from the Store. `useSelector` automatically setup subscription to the Redux store for FBC where it as called. FBC will be updated immediately after data was changed.
 
 ## React Hooks
 - Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function (like another Hook or if statement), that exist in FBC.

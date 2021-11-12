@@ -2,9 +2,9 @@ const redux = require('redux');
 
 /**
  *
- * @param {*current/previous state - object}  state default value = 0
- * @param {*what should we do with state} action
- * @returns {new state, which replace existed one} object
+ * @param {object}  state - current/previous state | default value = 0
+ * @param {object} action - what should we do with state
+ * @returns {object} - new state, which replace existed one
  */
 const counterReducer = (state = { counter: 0 }, action) => {
   if (action.type === 'INCREMENT') {

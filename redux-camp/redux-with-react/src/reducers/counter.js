@@ -3,7 +3,7 @@
  *
  * @param {object} state
  * @param {object} action
- * @returns object
+ * @returns {object}
  */
 export default function (state = { counter: 0 }, action) {
   if (action.type === 'INCREMENT') {
