@@ -67,6 +67,7 @@ static contextType = YourContext;
 - `dispatch` is passing `action` to a `reducer`.
 - `useStore` custom hook from react-redux, which gives direct access to the store (whole State), from FBC. Do  not recommended for often usage.
 - `useSelector` custom hook from react-redux. It's convenient then `useStore`, because that allows select a part of the State from FBC. Basically replacement for `mapStateToProps` argument to `connect`. Accept a function that specified what piece of data need to be fetched from the Store. `useSelector` automatically setup subscription to the Redux store for FBC where it as called. FBC will be updated immediately after data was changed.
+- `useDispatch`
 
 ## React Hooks
 - Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function (like another Hook or if statement), that exist in FBC.

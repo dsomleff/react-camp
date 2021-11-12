@@ -5,7 +5,7 @@
  * @param {object} action
  * @returns {object}
  */
-export default function (state = { counter: 0 }, action) {
+const counterReducer = (state = { counter: 0 }, action) => {
   if (action.type === 'INCREMENT') {
     return {
       counter: state.counter + 1
@@ -18,5 +18,13 @@ export default function (state = { counter: 0 }, action) {
     };
   }
 
+  if (action.type === 'RESET') {
+    return {
+      counter: 0
+    };
+  }
+
   return state;
 }
+
+export default counterReducer;

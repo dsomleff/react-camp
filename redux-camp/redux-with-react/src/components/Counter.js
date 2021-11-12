@@ -1,5 +1,5 @@
 import classes from './Counter.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 /**
  * Display simple counter
@@ -11,7 +11,31 @@ const Counter = () => {
    */
   const counter = useSelector(state => state.counter);
 
-  const toggleCounterHandler = () => { };
+  /**
+   * Dispatch action against Redux Store
+   */
+  const dispatch = useDispatch();
+
+  /**
+   * @typedef button handler
+   */
+  const incrementHandler = () => {
+    dispatch({ type: 'INCREMENT' });
+  };
+
+  /**
+   * @typedef button handler
+   */
+  const decrementHandler = () => {
+    dispatch({ type: 'DECREMENT' });
+  };
+
+  /**
+   * @typedef button handler
+   */
+  const toggleCounterHandler = () => {
+    dispatch({ type: 'RESET' });
+  };
 
   return (
     <main className={classes.counter}>
@@ -21,6 +45,10 @@ const Counter = () => {
         {counter}
       </div>
 
+      <div>
+        <button onClick={incrementHandler}>Increment</button>
+        <button onClick={decrementHandler}>Decrement</button>
+      </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
   );
