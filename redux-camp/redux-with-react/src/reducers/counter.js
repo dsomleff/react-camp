@@ -6,25 +6,26 @@
  * @returns {object}
  */
 const counterReducer = (state = { counter: 0 }, action) => {
-  if (action.type === 'INCREMENT') {
-    return {
-      counter: state.counter + 1
-    };
+  switch (action.type) {
+    case 'INCREMENT':
+      return {
+        counter: state.counter + 1
+      };
+    case 'INCREASE':
+      return {
+        counter: state.counter + action.value
+      }
+    case 'DECREMENT':
+      return {
+        counter: state.counter - 1
+      };
+    case 'RESET':
+      return {
+        counter: 0
+      };
+    default:
+      return state;
   }
-
-  if (action.type === 'DECREMENT') {
-    return {
-      counter: state.counter - 1
-    };
-  }
-
-  if (action.type === 'RESET') {
-    return {
-      counter: 0
-    };
-  }
-
-  return state;
 }
 
 export default counterReducer;
