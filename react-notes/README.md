@@ -60,7 +60,7 @@ static contextType = YourContext;
 - `Reducers` are manipulate state. We able to create as many reducers as we need, each of them will contain specific piece of state, that need specific Component. When Redux contained code will be run for a 1st time - default value (state) from Reducer will be return. No side effects inside `Reducers`, it's a "pure" function.
 - Every Reducer it's a function, returns new object with a new state and accept 2 arguments: `state` and `action`. `state` it's a previous (current) state, before action is going to update it. Reducer contains switch statement, that reacts on `action` type. Depends on the type of action, it returns appropriate state to Component.
 - `Provider` is Component from 'react-redux' library. It's a main parent of all Components that need Store Data. That's how all `Provider` children get access to Redux Store.
-- `combineReducers` is a redux function, that we use to store all our reducers and one place.
+- `combineReducers` is a redux function, that we use to store all our reducers and one place. Only one reducer can be passed to `createStore`, so if we got several reducers, `combineReducers` help us to solve this problem.
 - `createStore` is a redux function, that accept as an argument `combineReducers` to create a store. Then `createStore` should be passed to `Provider` to get access to store for app.
 - `connect` is a redux function and let us provide access for CBC/FBC to Redux. Accept as an argument a function (`mapStateToProps`) that allow us to access the Reducer and Component name itself. `connect()(ComponentName)`.
 - `mapStateToProps` standard name for function that accept state (top level Reducer, our Store) as an argument and return new object. Equivalent to `useSelector` hook.
@@ -74,6 +74,12 @@ static contextType = YourContext;
 ## Redux Toolkit
 - `createSlice` allow to separate a pieces of global state in a convenient wrappers, which may be put in a different files for more code maintainability. Every slice need a name, similar to id: `{ name: 'slice-name' }`, initial state, reducers list that needs that slice (should be an object with methods, that manipulate actions; names of methods literally is an action type, so we do not need to write switch statement and checks the action.type).
 - `createSlice` still not allow us to mutate state, but it uses package, that behind the scene check and return new object for state, but in code (inside methods) we can simply make reference to existed state.
+- `configureStore` equivalent to `combineReducers`. Accept configuration object as parameter with reducer property object.
+  ```js
+  const store = configureStore({
+    reducer: { counter: counterSlice.reducer }
+  });
+  ```
 
 ## React Hooks
 - Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function (like another Hook or if statement), that exist in FBC.
