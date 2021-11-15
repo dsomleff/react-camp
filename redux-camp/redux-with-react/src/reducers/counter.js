@@ -1,3 +1,5 @@
+const initialState = { counter: 0, showCounter: true };
+
 /**
  * Counter Reducer
  *
@@ -5,23 +7,27 @@
  * @param {object} action
  * @returns {object}
  */
-const counterReducer = (state = { counter: 0 }, action) => {
+const counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return {
-        counter: state.counter + 1
+        counter: state.counter + 1,
+        showCounter: state.showCounter
       };
     case 'INCREASE':
       return {
-        counter: state.counter + action.value
+        counter: state.counter + action.value,
+        showCounter: state.showCounter
       }
     case 'DECREMENT':
       return {
-        counter: state.counter - 1
+        counter: state.counter - 1,
+        showCounter: state.showCounter
       };
-    case 'RESET':
+    case 'TOGGLE':
       return {
-        counter: 0
+        counter: state.counter,
+        showCounter: !state.showCounter
       };
     default:
       return state;
