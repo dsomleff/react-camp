@@ -52,7 +52,8 @@ static contextType = YourContext;
 
 ## Redux
 - All Components in our app have access to state, like a global storage (single source of truth). So we avoid the problem, when we pass state from parent to nested children, even if middle child didn't use the state. Instead, we have Redux (global state storage) and any Component can use state if it need to.
-- Redux state never changed. It's read only and after each action we create a new state.
+- Redux initial state never must be changed. It's read only and after each action we create a new state. Because objects are reference value in JS and data can be overwritten incorrectly.
+- Even if we set a piece of state, we need provide all state fields. In other case, state will be replaced incorrectly (piece of data will be erased /overwritten).
 - Redux workflow contains `actions`, `reducers`, `store`, `dispatcher`.
 - Redux use flux pattern: action -> dispatcher -> store -> view. One way flow. Check the Flux Pattern.
 - Component dispatch `actions` -> actions type forwarded to `Reducer` -> `Reducer` function that mutates (change) Store Data in Global Data (State) Store -> Global Store sent new data to Component by subscription.
@@ -69,6 +70,10 @@ static contextType = YourContext;
 - `useSelector` custom hook from react-redux. It's convenient then `useStore`, because that allows select a part of the State from FBC. Basically replacement for `mapStateToProps` argument to `connect`. Accept a function that specified what piece of data need to be fetched from the Store. `useSelector` automatically setup subscription to the Redux store for FBC where it as called. FBC will be updated immediately after data was changed.
 - `useDispatch` hook that dispatch action against Redux Store. Accept object with { type: } property and payload.
 - `payload` additional property, that attached to action object that passed to `useDispatch`. It can be any type and helps to expand logic possibilities.
+
+## Redux Toolkit
+- `createSlice` allow to separate a pieces of global state in a convenient wrappers, which may be put in a different files for more code maintainability. Every slice need a name, similar to id: `{ name: 'slice-name' }`, initial state, reducers list that needs that slice (should be an object with methods, that manipulate actions; names of methods literally is an action type, so we do not need to write switch statement and checks the action.type).
+- `createSlice` still not allow us to mutate state, but it uses package, that behind the scene check and return new object for state, but in code (inside methods) we can simply make reference to existed state.
 
 ## React Hooks
 - Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function (like another Hook or if statement), that exist in FBC.
