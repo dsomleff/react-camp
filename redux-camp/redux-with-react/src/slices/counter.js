@@ -16,12 +16,17 @@ const counterSlice = createSlice({
       state.counter--;
     },
     increase(state, action) {
-      state.counter = state.counter + action.value;
+      state.counter = state.counter + action.payload;
     },
     toggle(state) {
       state.showCounter = !state.showCounter;
     }
   }
 });
+
+// returns an action object with 
+// list of reducers like
+// { type: 'auto-generated unique identifier' }
+export const counterActions = counterSlice.actions;
 
 export default counterSlice;

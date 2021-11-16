@@ -1,4 +1,5 @@
 .DS_Store
+.idea
 /indecision-app/node_modules
 /boilerplate-v1/node_modules
 /router-app/node_modules

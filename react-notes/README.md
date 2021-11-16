@@ -80,6 +80,7 @@ static contextType = YourContext;
     reducer: { counter: counterSlice.reducer }
   });
   ```
+  - to call actions from slice, we got `actions` method which contains all our reducers.
 
 ## React Hooks
 - Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function (like another Hook or if statement), that exist in FBC.
