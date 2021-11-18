@@ -17,7 +17,7 @@
 - `props` - property that specified in Component tag `<Component propName="propValue"/>`. Exist for both types of Component. If `props` was changed Component will re-render itself.
 - `children` of props - populate any info located between Component's tags `<Component>props.children</Component>`
 - `Class Methods` - A good rule of thumb is this: Use arrow functions on any class methods you define and aren't part of React (i.e. `render()`, `componentDidMount()`). Because of Logical Scope and `this` bounding.
-- One CBC can be connect to only one context. For that create a static property ana assign your context
+- One CBC can be connected to only one context. For that create a static property ana assign your context
 ```js
 static contextType = YourContext;
 // and get access through this.context.yourData;
@@ -57,7 +57,10 @@ static contextType = YourContext;
 - Redux workflow contains `actions`, `reducers`, `store`, `dispatcher`.
 - Redux use flux pattern: action -> dispatcher -> store -> view. One way flow. Check the Flux Pattern.
 - Component dispatch `actions` -> actions type forwarded to `Reducer` -> `Reducer` function that mutates (change) Store Data in Global Data (State) Store -> Global Store sent new data to Component by subscription.
-- `Reducers` are manipulate state. We able to create as many reducers as we need, each of them will contain specific piece of state, that need specific Component. When Redux contained code will be run for a 1st time - default value (state) from Reducer will be return. No side effects inside `Reducers`, it's a "pure" function.
+- `Reducers` are manipulate state. We're able to create as many reducers as we need, each of them will contain 
+  specific piece of state, that need specific Component. When Redux contained code will be run for a 1st time - 
+  default value (state) from Reducer will be return. No side effects inside `Reducers`, it's a "pure", synchronous 
+  function.
 - Every Reducer it's a function, returns new object with a new state and accept 2 arguments: `state` and `action`. `state` it's a previous (current) state, before action is going to update it. Reducer contains switch statement, that reacts on `action` type. Depends on the type of action, it returns appropriate state to Component.
 - `Provider` is Component from 'react-redux' library. It's a main parent of all Components that need Store Data. That's how all `Provider` children get access to Redux Store.
 - `combineReducers` is a redux function, that we use to store all our reducers and one place. Only one reducer can be passed to `createStore`, so if we got several reducers, `combineReducers` help us to solve this problem.

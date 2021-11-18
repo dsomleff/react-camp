@@ -4,6 +4,7 @@
 /boilerplate-v1/node_modules
 /router-app/node_modules
 /redux-camp/redux-nutshell/node_modules
+/redux-camp/redux-async/node_modules
 
 /expensify-app/node_modules
 /expensify-app/src/tests/components/__snapshots__
