@@ -1,4 +1,4 @@
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import Cart from './features/cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
