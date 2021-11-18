@@ -85,6 +85,9 @@ static contextType = YourContext;
   ```
   - to call actions from slice, we got `actions` method which contains all our reducers.
 
+## Async Redux
+- Side effect and async tasks should be executed inside the CBC/FBC or inside the action creators.
+
 ## React Hooks
 - Hooks can be called only inside of FBC and allow us to do things, that previously were available only in CBC. Hook cannot be called from nested function (like another Hook or if statement), that exist in FBC.
 - CBC can NOT use Hooks.
@@ -248,6 +251,9 @@ const yourFunc = useCallback(() => {
 export default React.memo(YourChildComponentName);
 ```
 - React will check if props, state, context of this child element were changed. If not, React will not call this Component. It will work for all nested YourChildComponentName component children as well. But it comes with the cost. Now instead of compare VirtualDOM with rendered HTML, React will compare existed props snapshot with current props. Instead of `memo()` you can use `useCallback` hook.
+- If logic contains synchronous, side-effects-free code (data transformations) - use `Reducers` and avoid Action 
+  Creators or FBC/CBC.
+- If logic contains async code or side-effects - use `Action Creators` or FBC/CBC and never use `Reducers`.
 
 ### custom Hooks (cH)
 - `cH` it's a function (not a Component), that contains stateful logic. It's allow outsource logic into reusable function. Using React Hooks or another cH is allowed.

@@ -1,4 +1,4 @@
-import Card from '../../components/UI/Card';
+import Card from '../ui/Card';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
 import { useSelector } from "react-redux";
