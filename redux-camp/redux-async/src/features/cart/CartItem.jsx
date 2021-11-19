@@ -5,15 +5,15 @@ import { cartActions } from "./cartSlice";
 const CartItem = (props) => {
     const {id, title, quantity, total, price} = props.item;
     const dispatch = useDispatch();
-    
+
     const addItemHandler = () => {
         dispatch(cartActions.addItem({
             id,
             title,
             price
         }));
-    }; 
-    
+    };
+
     const removeItemHandler = () => {
         dispatch(cartActions.removeItem(id));
     };
