@@ -57,7 +57,12 @@ static contextType = YourContext;
       Welcome
   </NavLink>
 ```
-- Use `:` in path segment to define dynamic data. Like `/products/:any-value`. As soon `any-value` is valid, it will be working.
+- Use `:` in path segment to define dynamic data. Like `/products/:anyValue`. As soon `anyValue` is valid, it will be working.
+- `useParams()` hook that have key-value pairs, where keys are dynamic segments from url. That key is equal the name of dynamic data that was passed into url.
+  ```js
+  const params = useParams();
+  const dynamicData = params.anyValue;
+  ```
 
 ## Redux
 - All Components in our app have access to state, like a global storage (single source of truth). So we avoid the problem, when we pass state from parent to nested children, even if middle child didn't use the state. Instead, we have Redux (global state storage) and any Component can use state if it need to.
