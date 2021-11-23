@@ -49,6 +49,14 @@ static contextType = YourContext;
 - `history` has a `push` method that allow us to specify on which route (url) we want to sent user. `<button onClick={() => props.history.push('/topics')}>Topics </button>`.
 - `location` tell us where are we currently in our App. `location.pathname` provide exact full url.
 - `Link` another Component that allow us to create a link. Use `<Link to=your-path />Path Name</Link>`. It also helps us with nested routes. `<Link to={`${props.match.url}/:dynamicData`}>` and no matter how we are change our url, this `Link` will be always works.
+- `NavLink` works as `Link`, but also set a CSS class on the active anchor item by `activeClassName`.
+```js
+  <NavLink
+    activeClassName={css.className}
+    to="welcome">
+      Welcome
+    </NavLink>
+```
 
 ## Redux
 - All Components in our app have access to state, like a global storage (single source of truth). So we avoid the problem, when we pass state from parent to nested children, even if middle child didn't use the state. Instead, we have Redux (global state storage) and any Component can use state if it need to.
@@ -57,9 +65,9 @@ static contextType = YourContext;
 - Redux workflow contains `actions`, `reducers`, `store`, `dispatcher`.
 - Redux use flux pattern: action -> dispatcher -> store -> view. One way flow. Check the Flux Pattern.
 - Component dispatch `actions` -> actions type forwarded to `Reducer` -> `Reducer` function that mutates (change) Store Data in Global Data (State) Store -> Global Store sent new data to Component by subscription.
-- `Reducers` are manipulate state. We're able to create as many reducers as we need, each of them will contain 
-  specific piece of state, that need specific Component. When Redux contained code will be run for a 1st time - 
-  default value (state) from Reducer will be return. No side effects inside `Reducers`, it's a "pure", synchronous 
+- `Reducers` are manipulate state. We're able to create as many reducers as we need, each of them will contain
+  specific piece of state, that need specific Component. When Redux contained code will be run for a 1st time -
+  default value (state) from Reducer will be return. No side effects inside `Reducers`, it's a "pure", synchronous
   function.
 - Every Reducer it's a function, returns new object with a new state and accept 2 arguments: `state` and `action`. `state` it's a previous (current) state, before action is going to update it. Reducer contains switch statement, that reacts on `action` type. Depends on the type of action, it returns appropriate state to Component.
 - `Provider` is Component from 'react-redux' library. It's a main parent of all Components that need Store Data. That's how all `Provider` children get access to Redux Store.
@@ -251,11 +259,11 @@ const yourFunc = useCallback(() => {
 export default React.memo(YourChildComponentName);
 ```
 - React will check if props, state, context of this child element were changed. If not, React will not call this Component. It will work for all nested YourChildComponentName component children as well. But it comes with the cost. Now instead of compare VirtualDOM with rendered HTML, React will compare existed props snapshot with current props. Instead of `memo()` you can use `useCallback` hook.
-- If logic contains synchronous, side-effects-free code (data transformations) - use `Reducers` and avoid Action 
+- If logic contains synchronous, side-effects-free code (data transformations) - use `Reducers` and avoid Action
   Creators or FBC/CBC.
 - If logic contains async code or side-effects - use `Action Creators / Thunk` or FBC/CBC and never use `Reducers`.
-- `Thunk` function that delays an action until later. It's not return an action but another function, that returns 
-  the action. 
+- `Thunk` function that delays an action until later. It's not return an action but another function, that returns
+  the action.
 
 ### custom Hooks (cH)
 - `cH` it's a function (not a Component), that contains stateful logic. It's allow outsource logic into reusable function. Using React Hooks or another cH is allowed.
