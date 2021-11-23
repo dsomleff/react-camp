@@ -48,15 +48,16 @@ static contextType = YourContext;
 - `match` contains `isExact`, `path`, `url` and `params`. First 3 you will get from their names, `params` it's everything what is specified after main `path` and dynamic. For example `/topic/:topicId` where `:topicId` is be present inside `params`. `:topicId` it's just a name, you can call url params whatever you like, just don't forget `:` at the beginning.
 - `history` has a `push` method that allow us to specify on which route (url) we want to sent user. `<button onClick={() => props.history.push('/topics')}>Topics </button>`.
 - `location` tell us where are we currently in our App. `location.pathname` provide exact full url.
-- `Link` another Component that allow us to create a link. Use `<Link to=your-path />Path Name</Link>`. It also helps us with nested routes. `<Link to={`${props.match.url}/:dynamicData`}>` and no matter how we are change our url, this `Link` will be always works.
+- `Link` another Component that allow us to create a link. Use `<Link to=your-path />Path Name</Link>`.
 - `NavLink` works as `Link`, but also set a CSS class on the active anchor item by `activeClassName`.
 ```js
   <NavLink
     activeClassName={css.className}
     to="welcome">
       Welcome
-    </NavLink>
+  </NavLink>
 ```
+- Use `:` in path segment to define dynamic data. Like `/products/:any-value`. As soon `any-value` is valid, it will be working.
 
 ## Redux
 - All Components in our app have access to state, like a global storage (single source of truth). So we avoid the problem, when we pass state from parent to nested children, even if middle child didn't use the state. Instead, we have Redux (global state storage) and any Component can use state if it need to.
