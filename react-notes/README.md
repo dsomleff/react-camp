@@ -43,11 +43,7 @@ static contextType = YourContext;
 - `path` url name
 - `component` name a Component that should be rendered by visiting `path`.
 - `exact` means that specified url must be completely the same. We have 2 routes: `/`(main or entry page) and `/hello`. Slash (`/`) present in both cases. And without `exact` content for `/` page will be rendered for `/hello` as well.
-- `Switch` Router Component that wrap all `Route` and as long as one `<Route path/>` matches the browser url, then it's the only Component we're going to render. It helps to avoid accidental render of multiple Components
-- Every time when Component was bounded to `Route` it receives 3 props: `match`, `history`, `location`. You can access them by using `props.match.nameOfTheProp`. This props will be accessible for parent Component only (that we specified in `<Route component={parentComponent} >`), not for it's child. To solve it use `withRouter`.
-- `match` contains `isExact`, `path`, `url` and `params`. First 3 you will get from their names, `params` it's everything what is specified after main `path` and dynamic. For example `/topic/:topicId` where `:topicId` is be present inside `params`. `:topicId` it's just a name, you can call url params whatever you like, just don't forget `:` at the beginning.
-- `history` has a `push` method that allow us to specify on which route (url) we want to sent user. `<button onClick={() => props.history.push('/topics')}>Topics </button>`.
-- `location` tell us where are we currently in our App. `location.pathname` provide exact full url.
+- `Switch` Router Component that wrap all `Route` and as long as one `<Route path/>` matches the browser url, then it's the only Component we're going to render. It helps to avoid accidental render of multiple Components.
 - `Link` another Component that allow us to create a link. Use `<Link to=your-path />Path Name</Link>`.
 - `NavLink` works as `Link`, but also set a CSS class on the active anchor item by `activeClassName`.
 ```js
@@ -62,7 +58,20 @@ static contextType = YourContext;
   ```js
   const params = useParams();
   const dynamicData = params.anyValue;
+
+  // to generate links dynamically with nested routes we can use 2 approach
+  <Route path={`/product/${params.anyValue}/comments`}/>
+  // or
+  <Route path='/product/:anyValue/comments'/>
   ```
+- Another way to deal with nested routes is `<Link to={`${props.match.url}/:dynamicData`}>` and no matter how we are change our url, this `Link` will be always works.
+- `Redirect` is Component that do what is it name is. `<Redirect to="/yourPath" />`.
+- To create a 404 page, inside `Switch` add last `<Route path='*'>`, where `*` means any. Because it comes last, it will be render 404 page for any path, that was not registered above.
+- `useHistory` hook that allows to change browser history. It returns an object, that allows to trigger browser history actions (push or replace f.e.). `replace` is like a redirect where we changed occurred page, `push` adds a new page (equivalent to go-back-button in browser).
+- Every time when Component was bounded to `Route` it receives 3 props: `match`, `history`, `location`. You can access them by using `props.match.nameOfTheProp`. This props will be accessible for parent Component only (that we specified in `<Route component={parentComponent} >`), not for it's child. To solve it use `withRouter`.
+- `match` contains `isExact`, `path`, `url` and `params`. First 3 you will get from their names, `params` it's everything what is specified after main `path` and dynamic. For example `/topic/:topicId` where `:topicId` is be present inside `params`. `:topicId` it's just a name, you can call url params whatever you like, just don't forget `:` at the beginning.
+- `history` has a `push` method that allow us to specify on which route (url) we want to sent user. `<button onClick={() => props.history.push('/topics')}>Topics </button>`.
+- `location` tell us where are we currently in our App. `location.pathname` provide exact full url.
 
 ## Redux
 - All Components in our app have access to state, like a global storage (single source of truth). So we avoid the problem, when we pass state from parent to nested children, even if middle child didn't use the state. Instead, we have Redux (global state storage) and any Component can use state if it need to.
