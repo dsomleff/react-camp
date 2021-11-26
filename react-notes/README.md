@@ -307,3 +307,21 @@ export default React.memo(YourChildComponentName);
 - Every `cH` name should start with `use`. That's convention and React will be inform that this function is `cH`. All `cH` may be stored in `hooks` folder, inside the app.
 - `state` created in `cH` will be bound to Component, in which `cH` was called. If we use `cH` in a multiple Components, every Component will receive it's own state. We share ONLY logic, NOT state.
 - `cH` as function should return something, and it can be any type you want (array, number, etc).
+
+### React Deployment
+- `Lazy Loading` allow to split app into small chunks of code, that will be downloaded only when required part of app will be requested. Achievable with `React.lazy()` from react lib and replace standard imports with special syntax.
+```js
+import React from 'react';
+
+// will be executed only when it's needed
+const componentName = React.lazy(() => import('path/to/imported/component'));
+// now use {componentName} as usual component
+```
+- `Lazy Loading` approach requires `fallback UI` in case of code chunk will be download too long. For this case use `Suspense` component from react lib. Use it to wrap all code that use `React.lazy()`.
+```js
+import {Suspense} from 'react';
+
+<Suspense fallback={<p>Loading...</p>}>
+  <componentName/>
+<Suspense/>
+```
