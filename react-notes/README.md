@@ -40,10 +40,12 @@ static contextType = YourContext;
 ## React Router
 - `BrowserRouter` main Component for React Routing. Put it in your app entry point.
 - `Route` Component which specified inside `BrowserRouter` and contains parameters as `path`, `component`, `exact`.
-- `path` url name
-- `component` name a Component that should be rendered by visiting `path`.
+- `Route` in react-router 6v accept `element` prop instead `component` for responsible FBC. Like `<Route element={<Component/>} />`.
+- `path` url name.
 - `exact` means that specified url must be completely the same. We have 2 routes: `/`(main or entry page) and `/hello`. Slash (`/`) present in both cases. And without `exact` content for `/` page will be rendered for `/hello` as well.
+- `exact` was deprecated for react-router 6v.
 - `Switch` Router Component that wrap all `Route` and as long as one `<Route path/>` matches the browser url, then it's the only Component we're going to render. It helps to avoid accidental render of multiple Components.
+- `Switch` was renamed in react-router 6v. Now in calls `Routes`. But work behavior remains the same.
 - `Link` another Component that allow us to create a link. Use `<Link to=your-path />Path Name</Link>`.
 - `NavLink` works as `Link`, but also set a CSS class on the active anchor item by `activeClassName`.
 ```js
@@ -52,6 +54,10 @@ static contextType = YourContext;
     to="welcome">
       Welcome
   </NavLink>
+```
+- `activeClassName` was deprecated for react-router 6v. For dynamic styles use `className` that accept function, where you can determine styles behavior based on `navData` with provided by react router.
+```js
+`className={ (navData) => navData.isActive ? oneStyle : anotherStyle }`
 ```
 - Use `:` in path segment to define dynamic data. Like `/products/:anyValue`. As soon `anyValue` is valid, it will be working.
 - `useParams()` hook that have key-value pairs, where keys are dynamic segments from url. That key is equal the name of dynamic data that was passed into url.
@@ -66,10 +72,24 @@ static contextType = YourContext;
   ```
 - Another way to deal with nested routes is `<Link to={`${props.match.url}/:dynamicData`}>` and no matter how we are change our url, this `Link` will be always works.
 - `Redirect` is Component that do what is it name is. `<Redirect to="/yourPath" />`.
+- `Redirect` was renamed for react-router 6v. Now its `Navigate` component. To replace the current page with a new page use `replace` prop.
+- Nested routes allow build deeply nested page structures. Just wrap your `<Route />` component with `<Routes>`.
+```js
+<Routes>
+  <Route path="/welcome/*" element={<Welcome />]>
+    <Route path="new-user" element=(<p>Welcome, new user!</p>} />
+  </Route>
+</Routes>
+// to let Welcome component know where to insert <p> into the DOM
+// use Outlet component from react-router 6v
+<Outlet />
+```
 - To create a 404 page, inside `Switch` add last `<Route path='*'>`, where `*` means any. Because it comes last, it will be render 404 page for any path, that was not registered above.
-- `useHistory` hook that allows to change browser history, get access to history object and manipulate URL . It returns an object, that allows to trigger browser history actions (push or replace f.e.). `replace` is like a redirect where we changed occurred page, `push` adds a new page (change URL), equivalent to go-back-button in browser. Also calling `push` is re-render the page.
+- `useHistory` hook that allows to change browser history, get access to history object and manipulate URL . It returns an object, that allows to trigger browser history actions (push or replace f.e.). `replace` is like a redirect where we changed occurred page, `push` adds a new page (change URL), equivalent to go-back-button in browser. Also calling `push` is re-render the page. Was deprecated for react-router 6v.
+- `useNavigate` hook replacement for `useHistory`.
 - `useLocation` hook that gives access to location object and have info about currently loaded page (URL).
-- `Prompt` component will automatically watch if user navigate away from the page with a form. And if then a certain condition is met, it will show a warning before it allows user to leave. Accept 2 props: `when` statement if true notification will be shown; `message` accept a function that gives access to `location` property and return a string with a message.
+- `Prompt` component will automatically watch if user navigate away from the page with a form. And if then a certain condition is met, it will show a warning before it allows user to leave. Accept 2 props: `when` statement if true notification will be shown; `message` accept a function that gives access to `location` property and return a string with a message. Was deprecated for react-router 6v.
+- `useRouteMatch` hook that provide access to info about url including React Router info. Helps to work with nested routes if they were specified outside of main router page.
 - Every time when Component was bounded to `Route` it receives 3 props: `match`, `history`, `location`. You can access them by using `props.match.nameOfTheProp`. This props will be accessible for parent Component only (that we specified in `<Route component={parentComponent} >`), not for it's child. To solve it use `withRouter`.
 - `match` contains `isExact`, `path`, `url` and `params`. First 3 you will get from their names, `params` it's everything what is specified after main `path` and dynamic. For example `/topic/:topicId` where `:topicId` is be present inside `params`. `:topicId` it's just a name, you can call url params whatever you like, just don't forget `:` at the beginning.
 - `history` has a `push` method that allow us to specify on which route (url) we want to sent user. `<button onClick={() => props.history.push('/topics')}>Topics </button>`.
