@@ -85,7 +85,7 @@ static contextType = YourContext;
 <Outlet />
 ```
 - To create a 404 page, inside `Switch` add last `<Route path='*'>`, where `*` means any. Because it comes last, it will be render 404 page for any path, that was not registered above.
-- `useHistory` hook that allows to change browser history, get access to history object and manipulate URL . It returns an object, that allows to trigger browser history actions (push or replace f.e.). `replace` is like a redirect where we changed occurred page, `push` adds a new page (change URL), equivalent to go-back-button in browser. Also calling `push` is re-render the page. Was deprecated for react-router 6v.
+- `useHistory` hook that allows to change browser history, get access to history object and manipulate URL . It returns an object, that allows to trigger browser history actions (push or replace f.e.). `replace` it's a redirect without ability to use go-back-button in browser, `push` adds a new page (change URL), equivalent to go-back-button in browser. Also calling `push` is re-render the page. Was deprecated for react-router 6v.
 - `useNavigate` hook replacement for `useHistory`.
 - `useLocation` hook that gives access to location object and have info about currently loaded page (URL).
 - `Prompt` component will automatically watch if user navigate away from the page with a form. And if then a certain condition is met, it will show a warning before it allows user to leave. Accept 2 props: `when` statement if true notification will be shown; `message` accept a function that gives access to `location` property and return a string with a message. Was deprecated for react-router 6v.
