@@ -8,6 +8,9 @@
 - **Nested routes**: available only in sub folder structure. Inside `news` folder create `news-slug.js` so now 
   `news/news-slug` path become available. Sub folder with nested route name will also do the trick. Like `news` -> 
   `news-slug` -> `index.js`.
+- **Dynamic pages**: when part of the url can be dynamic (slug), like `news/2`. For this use specific syntax - [] 
+  that tells NextJS that it will be dynamic page.
+- **useRouter**: give access to navigation, path parameters etc. `query` method allow us to fetch slug value from url.
 
 ## Additional info 
 - No need to import `React` from react, NextJS will do it behind the scene.
